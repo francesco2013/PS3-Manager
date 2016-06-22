@@ -6,7 +6,7 @@
 <li>Install <a href="https://github.com/aldostools/webMAN-MOD" target="_blank"><b>WebMan</b></a> on the PS3 (tested on version 1.43.16). </li>
 <li>Enable the <b>PS3MAPI</b> from <b>webMan</b> setup settings.</li>
 <li>Configure <b>webMan</b> under Setup to use the network share that we will share later:<br/><br/>
-<img alt="" style="padding : 1px; width:90%; height:auto;" src="images/webMan_Network_Share.png"><br/><br/>
+<img alt="" style="padding : 1px; width:90%; height:auto;" src="http://demo-ps3.fazionet.com/images/webMan_Network_Share.png"><br/><br/>
 Change IP to the IP Address of the machine running <a href="https://github.com/dirkvdb/ps3netsrv--" target="_blank"><b>PS3NetSrv++</b></a> and sharing the &nbsp;ISOs files to the PS3.</li>
 </ul>
 
