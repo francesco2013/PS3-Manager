@@ -1,15 +1,8 @@
 <?php
 
-
+include('mysql_conf.php');
 
 $id = $_GET['id'];
-
-    define('DB_USER', 'root');
-    define('DB_PASSWORD', 'Sibille01ibm');
-    define('DB_SERVER', '127.0.0.1');
-    define('DB_NAME', 'ps3-games');
-	
-	
 
 // FUNCTION TO CONVERT TO READABLE FILESIZE
 
