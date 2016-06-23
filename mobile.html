@@ -46,7 +46,7 @@
                     transition: 'all 0.3s'
                 });
                 $("#shutdown").html('Do you want to Shutdown the PS3 ?<br><br>');
-                $("#shutdown").append('<button style="margin-top: 10px;margin-right: 30px" onclick="CallUrl(\'http://play.fazionet.com/index.php?command=shutdown\')" class="reboot_close">Yes</button>');
+                $("#shutdown").append('<button style="margin-top: 10px;margin-right: 30px" onclick="CallUrl(\'http://play.fazionet.com/index.php?command=shutdown\')" class="shutdown_close">Yes</button>');
                 $("#shutdown").append('<button style="margin-top: 10px; padding-right: 10px; padding-left: 10px;" class="shutdown_close">No</button>');
 
                 $('#reboot').popup({
@@ -172,7 +172,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#52a1eb', end
                                     <span class="link-3 unmount_open" >Unmount</span><br>
                                     <span class="link-3 shutdown_open">Shutdown</span><br>
                                     <span class="link-3 reboot_open">Reboot</span><br>
-									<span class="link-3"><a class='links' style="color: black; text-decoration: none" href='logout.php'>Logout</a></span><br>
                                 </nav>
                              
 
