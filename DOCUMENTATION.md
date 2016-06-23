@@ -54,7 +54,7 @@ root@linuxbox:~# ln -s <b>/path/to/isos/files</b>/PS3/PS3ISO <b>/path/to/www</b>
 root@linuxbox:~# chmod -R 755 <b>/path/to/isos/files</b>/PS3/PS3ISO</li>
 <br><br>
 
-<li><span style="font-size: 20px; color: #55A3EC">Unzip the package <b>ps3_manager_0.30.zip</b> into your web directory:</span><br><br>
+<li><span style="font-size: 20px; color: #55A3EC">Unzip the PS3 Manager package from GitHub into your web directory:</span><br><br>
 
 Edit the file <b>config.php</b> as it follows:<br><br>
 
