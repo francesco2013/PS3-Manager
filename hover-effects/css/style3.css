@@ -1,0 +1,56 @@
+.view {
+	-webkit-perspective: 1000px;
+	-moz-perspective: 1000px;
+	-o-perspective: 1000px;
+	-ms-perspective: 1000px;
+	perspective: 1000px;
+}
+
+.view:hover .s1{
+	-webkit-transform: rotate3d(0,1,0,-55deg);
+	-moz-transform: rotate3d(0,1,0,-55deg);
+	-o-transform: rotate3d(0,1,0,-55deg);
+	-ms-transform: rotate3d(0,1,0,-55deg);
+	transform: rotate3d(0,1,0,-55deg);
+}
+
+.view:hover .s2,
+.view:hover .s5{
+	-webkit-transform: translate3d(59px,0,0) rotate3d(0,1,0,20deg);
+	-moz-transform: translate3d(59px,0,0) rotate3d(0,1,0,20deg);
+	-o-transform: translate3d(59px,0,0) rotate3d(0,1,0,20deg);
+	-ms-transform: translate3d(59px,0,0) rotate3d(0,1,0,20deg);
+	transform: translate3d(59px,0,0) rotate3d(0,1,0,20deg);
+}
+
+.view:hover .s3{
+	-webkit-transform: translate3d(59px,0,0) rotate3d(0,1,0,30deg);
+	-moz-transform: translate3d(59px,0,0) rotate3d(0,1,0,30deg);
+	-o-transform: translate3d(59px,0,0) rotate3d(0,1,0,30deg);
+	-ms-transform: translate3d(59px,0,0) rotate3d(0,1,0,30deg);
+	transform: translate3d(59px,0,0) rotate3d(0,1,0,30deg);
+}
+
+.view:hover .s4{
+	-webkit-transform: translate3d(59px,0,0) rotate3d(0,1,0,40deg);
+	-moz-transform: translate3d(59px,0,0) rotate3d(0,1,0,40deg);
+	-o-transform: translate3d(59px,0,0) rotate3d(0,1,0,40deg);
+	-ms-transform: translate3d(59px,0,0) rotate3d(0,1,0,40deg);
+	transform: translate3d(59px,0,0) rotate3d(0,1,0,40deg);
+}
+
+.view .s1 > .overlay {
+	background: -moz-linear-gradient(left, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 100%);
+	background: -webkit-linear-gradient(left, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
+	background: -o-linear-gradient(left, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
+	background: -ms-linear-gradient(left, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
+	background: linear-gradient(left, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
+}
+
+.view .s5 > .overlay {
+	background: -moz-linear-gradient(right, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 100%);
+	background: -webkit-linear-gradient(right, rgba(0,0,0,0.4) 0%,rgba(0,0,0,0) 100%);
+	background: -o-linear-gradient(right, rgba(0,0,0,0.4) 0%,rgba(0,0,0,0) 100%);
+	background: -ms-linear-gradient(right, rgba(0,0,0,0.4) 0%,rgba(0,0,0,0) 100%);
+	background: linear-gradient(right, rgba(0,0,0,0.4) 0%,rgba(0,0,0,0) 100%);
+}
