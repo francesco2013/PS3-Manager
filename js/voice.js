@@ -26,20 +26,13 @@
 			    
 				
 				var searchKeyword = text;
-				if(text == "exit") { document.location.href = 'logout.php'; }
-				if(text == "log off") { document.location.href = 'logout.php'; }
 				if(text == "last played") { document.location.href = 'index.php?order=lastplayed'; }
 				if(text == "most played") { document.location.href = 'index.php?order=numplayed'; }
 				if(text == "release date") { document.location.href = 'index.php?order=rel_date'; }
 				if(text == "score") { document.location.href = 'index.php?order=score'; }
 				if(text == "random") { document.location.href = 'games.php?game=random'; }
-				if(text == "wyndham") { text = "random"; document.location.href = 'games.php?game=random'; }
-				if(text == "zaandam") { text = "random"; document.location.href = 'games.php?game=random'; }
 				if(text == "reboot") { document.location.href = 'index.php?command=reboot'; }
 				if(text == "restart") { document.location.href = 'index.php?command=reboot'; }
-				if(text == "wyndham") { text = "random"; document.location.href = 'games.php?game=random'; }
-				if(text == "zaandam") { text = "random"; document.location.href = 'games.php?game=random'; }
-				
 				
 				setInput(text);
 				stopRecognition();
