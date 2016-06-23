@@ -1,0 +1,1 @@
+<div class="col-md-4 col-xs-4 gallery-grid" style="border:thin solid #3399AA; font-size: 95%"><a class="example-image-link" href="game.php?game=' + this.id + '"><img class="example-image" src="covers/'+ this.covername +'"><font color="black"><center>'+ this.name +'</center></font></a></div>
