@@ -1,0 +1,1578 @@
+/*
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+*/
+h4, h5, h6,
+h1, h2, h3 {margin: 0;}
+ul, ol, li{margin: 0; padding: 0;}
+p {margin: 0;padding: 0;}
+body{
+	margin:0;
+	padding:0;
+    overflow-x: hidden;
+
+
+}
+/*--fonts--*/
+@font-face{
+    font-family: 'Hind Vadodara';
+	src:url(../fonts/Hind_Vadodara/HindVadodara-Regular.ttf) format('truetype');
+}
+@font-face{
+    font-family: 'Raleway';
+	src:url(../fonts/Raleway/Raleway-Regular.ttf) format('truetype');
+}
+/*--body-starts--*/
+.nav-dflt-setin {
+    margin: 0;
+    border: 1px;
+    padding: 0.6em 0;
+    border-radius: 0;
+    background-color: #fff;
+}
+.nav-min-wid{
+    width: 20%;
+}
+.nav-max-wid{
+    width: 100%;
+}
+
+.keyword {
+    border: 1px solid #848484;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    outline:0;
+    height:25px;
+    width: 100px;
+    padding-left:10px;
+    padding-right:10px;
+  }
+
+
+.navbar-brand {
+    color: #3399AA !important;
+    font-size: 38px;
+    font-weight: 600;
+    font-family: 'Hind Vadodara';
+    padding: 12px 15px;
+}
+ul.nav-max-wid>li>a{
+    font-family: 'Hind Vadodara';
+    font-size: 17px;
+    font-weight: 600;
+    text-transform: capitalize;
+    color: #1a1a1a !important;
+}
+/*--menu-effect--*/
+ul#cl-effect-5 {
+    margin-top: 18px;
+	margin-left: 140px;
+}
+ul.cl-effect-5>li>a {
+	overflow: hidden;
+	padding: 0px 25px;
+}
+ul.cl-effect-5 a span {
+	position: relative;
+	display: inline-block;
+	-webkit-transition: -webkit-transform 0.3s;
+	-moz-transition: -moz-transform 0.3s;
+	transition: transform 0.3s;
+}
+
+ul.cl-effect-5>li>a span::before {
+	position: absolute;
+	top: 100%;
+	content: attr(data-hover);
+	font-weight: 800 !important;
+	-webkit-transform: translate3d(0,0,0);
+	-moz-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+}
+span.active{
+    color: 5AA5EB;
+}
+ul.cl-effect-5 a:hover span,
+ul.cl-effect-5 a:focus span {
+	-webkit-transform: translateY(-100%);
+	-moz-transform: translateY(-100%);
+	transform: translateY(-100%);
+    color: 5AA5EB;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+    display: block;
+}
+.carousel-caption {
+    background: rgba(106, 67, 28, 0.66);
+    right: 23%;
+    left: 23%;
+    bottom: 30%;
+    padding: 60px;
+}
+.carousel-caption h3 {
+    font-family: 'Raleway';
+    font-size: 19px;
+    font-weight: 400;
+    color: #fff;
+    line-height: 2.2em;
+    text-transform: capitalize;
+}
+/*--menu-effect-ends--*/
+ul.social{
+    margin-top: 13px;
+    padding: 0px 50px;
+}
+ul.social li{
+    display: inline;
+}
+ul.social li a{
+    background:url(../images/social.png);
+    width: 26px;
+    height: 26px;
+    display: inline-block;
+}
+ul.social li a.fb{
+    background-position: 0px 0px;
+}
+ul.social li a.fb:hover{
+    background-position: 0px -26px;
+}
+ul.social li a.twit{
+    background-position: -26px 0px;
+}
+ul.social li a.twit:hover{
+    background-position: -26px -26px;
+}
+ul.social li a.gplus{
+    background-position: -52px 0px;
+}
+ul.social li a.gplus:hover{
+    background-position: -52px -26px;
+}
+ul.social li a.inst{
+    background-position: -78px 0px;
+}
+ul.social li a.inst:hover{
+    background-position: -78px -26px;
+}
+img.banner-wid{
+    width: 100%;
+}
+section.best-quality {
+    background-color: #C7AB84;
+    text-align: center;
+    padding: 1.8em 0em;
+}
+section.best-quality p {
+    font-size: 17px;
+    color: #fff;
+    font-family: 'Raleway';
+    font-weight: 300;
+}
+.btn-quality {
+    margin-left: 5em;
+    background-color: #51311A;
+    color: #fff;
+    text-transform: uppercase;
+    border: none;
+    font-family: 'Hind Vadodara';
+    transition: 0.5s all;
+}
+.btn-quality:hover,.btn-quality:focus {
+    background-color: #181502;
+    color: #fff;
+    transition: 0.5s all;
+}
+.work-grids{
+    padding: 0;
+}
+
+.work-grid-text ul{
+    list-style-type: none;
+}
+
+img.work-img-wid {
+    width: 100%;
+}
+img.work-img-wid {
+    max-width: 100%;
+    transition: all 500ms!important;
+    -webkit-transition: all 500ms!important;
+    -moz-transition: all 500ms!important;
+}
+img.work-img-wid:hover{
+    -webkit-transform: scale(1.15);
+    -webkit-transition-timing-function: ease-out;
+    -webkit-transition-duration: 750ms;
+    -moz-transform: scale(1.15);
+    -moz-transition-timing-function: ease-out;
+    -moz-transition-duration: 750ms;
+    overflow: hidden;
+}
+.work-img{
+    overflow: hidden;
+}
+.work-grid-icn {
+    font-size: 25px;
+    color: #D7C194;
+    vertical-align: text-bottom;
+    margin-right: 10px;
+}
+.work-section {
+    padding: 6em 0;
+}
+a.work-btn{
+    background-color: #51311A;
+    color: #fff;
+    text-transform: uppercase;
+    border: none;
+    font-family: 'Hind Vadodara';
+    transition: 0.5s all;
+    display: inline-block;
+}
+a.work-btn:hover,a.work-btn:focus{
+    background-color: #181502;
+    color: #fff;
+    transition: 0.5s all;
+}
+.our-latest{
+    padding-bottom: 6em;
+    text-align: center;
+}
+.our-latest h2 {
+    font-family: 'Hind Vadodara';
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #c7ab84;
+    margin-bottom: 1em;
+    font-size: 30px;
+}
+.latest-grid {
+    padding: 10px;
+}
+img.latest-img {
+    width: 100%;
+}
+.latest-bg-pos{
+    position: relative;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+}
+.latest-text {
+    position: absolute;
+    top: 0%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.81);
+    height: 100%;
+    padding: 22px;
+    display: none;
+}
+.border-line {
+    border: 3px solid #915D24;
+    width: 100%;
+    height: 100%;
+    padding-top: 60px;
+}
+.border-line h3 {
+    color: #C78529;
+    text-transform: capitalize;
+    font-weight: 400;
+    font-size: 23px;
+    font-family: 'Hind Vadodara';
+    margin-bottom: 15px;
+}
+.border-line p {
+    color: #676565;
+    font-family: 'Raleway';
+    font-size: 17px;
+    font-weight: 300;
+}
+.latest-bg-pos:hover .latest-text{
+    display: block;
+    cursor: pointer;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+}
+/*--- slider-css --*/
+.slider {
+	position: relative;
+}
+.rslides {
+  position: relative;
+  list-style: none;
+  overflow: hidden;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  }
+.rslides li {
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+  display: none;
+  width: 100%;
+  left: 0;
+  top: 0;
+  }
+.rslides li:first-child {
+  position: relative;
+  display: block;
+  float: left;
+  }
+.rslides img {
+  display: block;
+  height: auto;
+  float: left;
+  width: 100%;
+  border: 0;
+  }
+.caption{
+    width: 100%;
+    text-align: center;
+    height: 130px;
+}
+.caption h3{
+	font-family: 'Hind Vadodara';
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 0.4em;
+    font-size: 30px;
+}
+.caption p{
+    color: #E4D5C0;
+    font-family: 'Raleway';
+    font-size: 15.5px;
+    font-weight: 300;
+    line-height: 1.9em;
+}
+a.morebtn{
+	background:#3D3D3D;
+	padding:0.8em 0;
+	display:block;
+	font-size:0.875em;
+	text-transform:uppercase;
+	color:#FFF;
+	width:20%;
+	margin:0 auto;
+	transition:0.5s all ease;
+	-webkit-transition:0.5s all ease;
+	-moz-transition:0.5s all ease;
+	-o-transition:0.5s all ease;
+	-ms-transition:0.5s all ease;
+}
+a.morebtn:hover{
+	background:#585686;
+}
+.callbacks_tabs a:after {
+	content: "\f111";
+	font-size: 0;
+	font-family: FontAwesome;
+	visibility: visible;
+	display: block;
+	height: 12px;
+	width: 12px;
+	display: inline-block;
+	border: 2px solid #747474;
+}
+.callbacks_here a:after{
+	border: 2px solid #FFF;
+}
+.callbacks_tabs a{
+	visibility:hidden;
+}
+.callbacks_tabs li{
+	display:inline-block;
+}
+ul.callbacks_tabs.callbacks1_tabs {
+    position: absolute;
+    bottom: -28%;
+    z-index: 999;
+    left: 47%;
+    right: 47%;
+}
+.twitter-feeds {
+    padding: 6em 0em;
+    background-color: #C7AB84;
+}
+.ft-top{
+    padding: 4em 0;
+    background: #F7F5F5;
+}
+.social-media {
+    text-align: center;
+}
+.social-media h3{
+    font-family: 'Raleway';
+    font-size: 20px;
+    color: #aaa;
+    text-transform: capitalize;
+}
+.social-media span{
+    display: inline-block;
+    background: #C7AB84;
+    height: 2px;
+    width: 60px;
+}
+.social-media ul {
+    list-style-type: none;
+}
+.social-media ul li{
+    display: inline-block;
+}
+.social-media ul li a{
+    background: url(../images/social.png);
+    width: 42px;
+    height: 42px;
+    display: inline-block;
+}
+.social-media ul li a.ftfb{
+    background-position: -104px 0px;
+}
+.social-media ul li a.ftfb:hover{
+    background-position: -104px -42px;
+}
+.social-media ul li a.fttwt{
+    background-position: -146px 0px;
+}
+.social-media ul li a.fttwt:hover{
+    background-position: -146px -42px;
+}
+.social-media ul li a.ftinst{
+    background-position: -188px 0px;
+}
+.social-media ul li a.ftinst:hover{
+    background-position: -188px -42px;
+}
+.social-media ul li a.ftdrib{
+    background-position: -230px 0px;
+}
+.social-media ul li a.ftdrib:hover{
+    background-position: -230px -42px;
+}
+.ft-bottom {
+    background-color: #3399AA;
+    padding: 1em 0;
+    text-align: center;
+}
+.ft-bottom p {
+    font-family: 'Raleway';
+    font-size: 15px;
+    color: #827A7A;
+}
+.ft-bottom a{
+    color: #827A7A;
+}
+#toTop {
+    display: none;
+    text-decoration: none;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    overflow: hidden;
+    width: 64px;
+    height: 48px;
+    border: none;
+    text-indent: 100%;
+    background: url(../images/top-arrow.png) no-repeat;
+}
+/*--about--*/
+.about-top {
+    padding: 4em 0;
+    text-align: center;
+}
+.about-top h2 {
+    font-family: 'Hind Vadodara';
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 1.5em;
+    font-size: 35px;
+    background-color: #C7AB84;
+    padding: 10px 0px;
+    border-radius: 3px;
+}
+.about-grid h3 {
+    line-height: 2.5em;
+    font-family: 'Hind Vadodara';
+    color: #1a1a1a;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 20px;
+}
+span.glyphicon.glyphicon-menu-right {
+    vertical-align: text-bottom;
+}
+.abt-img {
+    width: 50%;
+}
+.about-bottom {
+    padding-bottom: 6em;
+}
+.callbacks_nav {
+    position: absolute;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    top: 44%;
+    left: 3.2%;
+    opacity: 0.7;
+    z-index: 3;
+    text-indent: -9999px;
+    overflow: hidden;
+    text-decoration: none;
+    height: 70px;
+    width: 40px;
+    background: transparent url("../images/arrows.png") no-repeat left top;
+    margin-top: -3%;
+}
+.callbacks_nav.next {
+    left: auto;
+    background-position: right top;
+    left: 88.5%;
+}
+.about-bottom h4{
+    font-family: 'Hind Vadodara';
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #c7ab84;
+    margin-bottom: 1em;
+    font-size: 22px;
+}
+.about-btm-text {
+    padding: 0;
+}
+.about-btm-text p:nth-child(2) {
+    margin-top: 15px;
+}
+.test-bkp {
+    padding: 0;
+    margin: 5px;
+    width: 32.333333%;
+}
+.about-testimonials {
+    padding: 4em 0;
+    background-color: #FFDFC9;
+}
+.test-mon{
+    text-align: center;
+    border: 2px dotted #E6BA9C;
+    padding: 35px 20px;
+    text-align: center;
+}
+.test-mon h3{
+    font-family: 'Hind Vadodara';
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #675959;
+    margin-bottom: 1em;
+    font-size: 18px;
+}
+.test-mon p{
+    line-height: 2.2em;
+    text-align: center;
+    font-family: 'Raleway';
+    color: #7B7B78;
+    text-transform: capitalize;
+    font-size: 14px;
+    font-weight: 300;
+}
+h3.test {
+    font-size: 25px;
+    font-family: 'Hind Vadodara';
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+.service-info{
+    text-align: center;
+}
+.service-info {
+    text-align: center;
+    padding: 4em 0 0;
+}
+.service-info h2{
+    font-family: 'Hind Vadodara';
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 0.5em;
+    font-size: 35px;
+    background-color: #C7AB84;
+    padding: 10px 0px;
+    border-radius: 3px;
+}
+.service-info p{
+    line-height: 2em;
+    text-align: center;
+    font-family: 'Raleway';
+    color: #7B7B78;
+    text-transform: capitalize;
+    font-size: 14px;
+    font-weight: 300;
+}
+/*--icon-effect--*/
+.hi-icon {
+	display: inline-block;
+	font-size: 0px;
+	cursor: pointer;
+	margin: 15px 30px;
+	width: 90px;
+	height: 90px;
+	border-radius: 50%;
+	text-align: center;
+	position: relative;
+	z-index: 1;
+	color: #fff;
+}
+
+.hi-icon:after {
+	pointer-events: none;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	content: '';
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+.hi-icon:before {
+	font-family: 'ecoicon';
+	speak: none;
+	font-size: 48px;
+	line-height: 90px;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	display: block;
+	-webkit-font-smoothing: antialiased;
+}
+/* Effect 3 */
+.hi-icon-effect-3 .hi-icon {
+	box-shadow: 0 0 0 4px #E0E0E0;
+	-webkit-transition: color 0.3s;
+	-moz-transition: color 0.3s;
+	transition: color 0.3s;
+}
+
+.hi-icon-effect-3 .hi-icon:after {
+	top: -2px;
+	left: -2px;
+	padding: 2px;
+	z-index: -1;
+	background: #C7AB84;
+	-webkit-transition: -webkit-transform 0.2s, opacity 0.3s;
+	-moz-transition: -moz-transform 0.2s, opacity 0.3s;
+	transition: transform 0.2s, opacity 0.3s;
+}
+/* Effect 3b */
+.hi-icon-effect-3b .hi-icon:after {
+	-webkit-transform: scale(1.3);
+	-moz-transform: scale(1.3);
+	-ms-transform: scale(1.3);
+	transform: scale(1.3);
+	opacity: 0;
+}
+
+.hi-icon-effect-3b .hi-icon:hover:after {
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	-ms-transform: scale(1);
+	transform: scale(1);
+	opacity: 1;
+}
+.service-icn {
+    font-size: 45px;
+    line-height: 2em;
+    color: #B5B5B5;
+}
+.hi-icon:hover .service-icn {
+    color: #fff;
+}
+.service-box {
+    text-align: center;
+}
+/*--effect--*/
+.icon-grids-top{
+    padding: 4em 0em 6em;
+}
+.service-box h5{
+    line-height: 2.5em;
+    font-family: 'Hind Vadodara';
+    color: #1a1a1a;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 20px;
+}
+.service-box p{
+    line-height: 2em;
+    font-family: 'Raleway';
+    color: #7B7B78;
+    text-transform: capitalize;
+    font-size: 15px;
+    font-weight: 300;
+}
+.service-img-wid{
+    width: 100%;
+    height: 190px;
+    max-width: 100%;
+    transition: all 500ms!important;
+    -webkit-transition: all 500ms!important;
+    -moz-transition: all 500ms!important;
+}
+.service-img-wid:hover{
+    -webkit-transform: scale(1.15);
+    -webkit-transition-timing-function: ease-out;
+    -webkit-transition-duration: 750ms;
+    -moz-transform: scale(1.15);
+    -moz-transition-timing-function: ease-out;
+    -moz-transition-duration: 750ms;
+    overflow: hidden;
+}
+.service-img{
+    overflow: hidden;
+}
+.servic-bkp{
+    padding: 0;
+}
+.servic-bkp {
+    padding: 3px;
+}
+.srvice-text h3 {
+    line-height: 2.5em;
+    font-family: 'Hind Vadodara';
+    color: #1a1a1a;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 18px;
+}
+.srvice-text p{
+    line-height: 2em;
+    font-family: 'Raleway';
+    color: #7B7B78;
+    text-transform: capitalize;
+    font-size: 15px;
+    font-weight: 300;
+    font-weight: 300;
+    font-weight: 300;
+}
+.service-pop {
+    padding-bottom: 6em;
+}
+.rt-arrow {
+    vertical-align: text-bottom;
+    margin-left: 8px;
+}
+/*--gallery-starts--*/
+.gallery-text {
+    text-align: center;
+     padding: 4em 0;
+}
+.gallery-text h2{
+    font-family: 'Hind Vadodara';
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 0.5em;
+    font-size: 35px;
+    background-color: #FFF;
+    padding: 10px 0px;
+    border-radius: 3px;
+}
+
+.drop-shadow {
+    background: #fff none repeat scroll 0 0;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    float: left;
+    margin: 2em 10px 4em;
+    padding: 1em;
+    position: relative;
+    width: 40%;
+}
+.drop-shadow::before, .drop-shadow::after {
+    content: "";
+    position: absolute;
+    z-index: -2;
+}
+.drop-shadow p {
+    font-size: 16px;
+    font-weight: bold;
+}
+.lifted {
+    border-radius: 4px;
+}
+.lifted::before, .lifted::after {
+    bottom: 15px;
+    box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
+    height: 20%;
+    left: 10px;
+    max-height: 100px;
+    max-width: 300px;
+    transform: rotate(-3deg);
+    width: 50%;
+}
+.lifted::after {
+    left: auto;
+    right: 10px;
+    transform: rotate(3deg);
+}
+.curled {
+    border: 1px solid #efefef;
+    border-radius: 0 0 120px 120px / 0 0 6px 6px;
+}
+.curled::before, .curled::after {
+    bottom: 12px;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+    height: 55%;
+    left: 10px;
+    max-height: 100px;
+    max-width: 200px;
+    transform: skew(-8deg) rotate(-3deg);
+    width: 50%;
+}
+.curled::after {
+    left: auto;
+    right: 10px;
+    transform: skew(8deg) rotate(3deg);
+}
+.perspective::before {
+    bottom: 5px;
+    box-shadow: -80px 0 8px rgba(0, 0, 0, 0.4);
+    height: 35%;
+    left: 80px;
+    max-height: 50px;
+    max-width: 200px;
+    transform: skew(50deg);
+    transform-origin: 0 100% 0;
+    width: 50%;
+}
+.perspective::after {
+    display: none;
+}
+.raised {
+    box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+.curved::before {
+    border-radius: 10px / 100px;
+    bottom: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    left: 0;
+    right: 50%;
+    top: 10px;
+}
+.curved-vt-2::before {
+    right: 0;
+}
+.curved-hz-1::before {
+    border-radius: 100px / 10px;
+    bottom: 0;
+    left: 10px;
+    right: 10px;
+    top: 50%;
+}
+.curved-hz-2::before {
+    border-radius: 100px / 10px;
+    bottom: 0;
+    left: 10px;
+    right: 10px;
+    top: 0;
+}
+.rotated {
+    box-shadow: none;
+    transform: rotate(-3deg);
+}
+.rotated > *:first-child::before {
+    background: #fff none repeat scroll 0 0;
+    bottom: 0;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+}
+
+
+
+
+
+
+.multiple-borders {
+  -webkit-box-shadow:
+    		0px 0px 0px 2px rgba(0,0,0,0.6),
+                0px 0px 0px 14px #fff,
+                0px 0px 0px 18px rgba(0,0,0,0.2),
+                6px 6px 8px 17px #555;
+  
+     -moz-box-shadow:
+    		0px 0px 0px 2px rgba(0,0,0,0.6),
+                0px 0px 0px 14px #fff,
+                0px 0px 0px 18px rgba(0,0,0,0.2),
+                6px 6px 8px 17px #555;
+  
+          box-shadow:
+    		0px 0px 0px 2px rgba(0,0,0,0.6),
+                0px 0px 0px 14px #fff,
+                0px 0px 0px 18px rgba(0,0,0,0.2),
+                6px 6px 8px 17px #555;
+}
+
+
+
+
+
+
+
+
+.gallery-text p{
+    line-height: 2em;
+    text-align: center;
+    font-family: 'Raleway';
+    color: #7B7B78;
+    text-transform: capitalize;
+    font-size: 14px;
+    font-weight: 300;
+}
+img.example-image {
+    width: 70%;
+}
+
+#example-image img  {
+ margin: 20px;
+ border: 5px solid #eee;
+ -webkit-box-shadow: 4px 4px 4px rgba(0,0,0,0.2);
+ -moz-box-shadow: 4px 4px 4px rgba(0,0,0,0.2);
+ box-shadow: 4px 4px 4px rgba(0,0,0,0.2);
+ -webkit-transition: all 0.5s ease-out;
+ -moz-transition: all 0.5s ease;
+ -o-transition: all 0.5s ease;
+}
+ 
+#example-image img:hover {
+ -webkit-transform: rotate(-7deg);
+ -moz-transform: rotate(-7deg);
+ -o-transform: rotate(-7deg);			
+}
+
+img.example-image   {
+ margin: 20px;
+ border: 5px solid #eee;
+ -webkit-box-shadow: 4px 4px 4px rgba(0,0,0,0.2);
+ -moz-box-shadow: 4px 4px 4px rgba(0,0,0,0.2);
+ box-shadow: 4px 4px 4px rgba(0,0,0,0.2);
+ -webkit-transition: all 0.5s ease-out;
+ -moz-transition: all 0.5s ease;
+ -o-transition: all 0.5s ease;
+}
+ 
+img:hover.example-image  {
+ -webkit-transform: rotate(-7deg);
+ -moz-transform: rotate(-7deg);
+ -o-transform: rotate(-7deg);		
+
+}
+
+.gallery-grid{
+    padding: 3px;
+}
+.grid-gallery{
+    padding: 0em 0em 6em;
+}
+/*--gallery-ends--*/
+.contact{
+    padding: 4em 0;
+}
+.contact-left,.contact-right {
+    padding: 0px 12px;
+}
+.map iframe {
+    width: 100%;
+    height: 408px;
+}
+.adress ul{
+list-style-type: none;
+}
+.adress ul li{
+    width: 33.33333%;
+    float: left;
+    text-align: center;
+    font-family: 'Hind Vadodara';
+    color: #C7AB84;
+    font-size: 18px;
+    font-weight: 400;
+}
+.form-details {
+    text-align: center;
+    margin-top: 20px;
+}
+input.name-con, input.email-con {
+    width: 100%;
+    padding: 7px;
+    outline: none;
+    display: block;
+    border: 2px solid #C7AB84;
+    background-color: transparent;
+    color: #1a1a1a;
+    font-family: 'Raleway';
+}
+textarea.contact-area{
+    width: 100%;
+    padding: 7px;
+    outline: none;
+    display: block;
+    border: 2px solid #C7AB84;
+    background-color: transparent;
+    color: #1a1a1a;
+    font-family: 'Raleway';
+    resize: none;
+    height: 200px;
+}
+.btn-contact{
+    background-color: #51311A;
+    color: #fff;
+    text-transform: uppercase;
+    border: none;
+    font-family: 'Hind Vadodara';
+    transition: 0.5s all;
+    display: inline-block;
+}
+.btn-contact:hover,.btn-contact:focus{
+    background-color: #181502;
+    color: #fff;
+    transition: 0.5s all;
+}
+.typography {
+    padding: 4em 0;
+}
+h2.hd{
+    font-family: 'Hind Vadodara';
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 1.5em;
+    font-size: 35px;
+    background-color: #C7AB84;
+    padding: 10px 0px;
+    border-radius: 3px;
+    text-align: center;
+}
+.strap-list ul{
+    list-style-type: none;
+}
+.grid_1>h4,.grid_2>h4,.grid_3>h4,.grid_4>h4,.grid_5>h4,.grid_6>h4,.page-header>h4{
+    font-size: 30px;
+    font-family: 'Hind Vadodara';
+    font-weight: 400;
+    color: #c7ab84;
+    margin-bottom: 1em;
+}
+.grid_1.grid_2.grid_3.grid_4.grid_5.grid_6.page-header{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.typ1{
+    margin: 20px 0px;
+}
+.contact h2{
+    font-family: 'Hind Vadodara';
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 1.5em;
+    font-size: 35px;
+    background-color: #C7AB84;
+    padding: 10px 0px;
+    border-radius: 3px;
+    text-align: center;
+}
+/*--responsive-starts-here--*/
+@media only screen and (max-width: 1024px){
+    .carousel-caption h3 {
+        font-size: 18px;
+    }
+    ul.cl-effect-5>li>a {
+        padding: 0px 16px;
+    }
+    ul.social {
+        padding: 0px 30px;
+    }
+    .work-grid-text {
+        padding: 15px;
+    }
+    .work-grid-text p {
+        margin: 12px 0px;
+        font-size: 14px;
+    }
+    .work-grid-icn {
+        font-size: 21px;
+        vertical-align: top;
+    }
+    ul.callbacks_tabs.callbacks1_tabs {
+        left: 46%;
+        right: 46%;
+    }
+    .about-grid p,.about-btm-text p,.service-box p,.srvice-text p {
+        font-size: 14px;
+    }
+    span.glyphicon.glyphicon-menu-right {
+        vertical-align: middle;
+        font-size: 13px;
+    }
+    .callbacks_nav {
+        left: 4.2%;
+    }
+    .callbacks_nav.next {
+        left: 85.9%;
+    }
+    .test-bkp {
+        margin: 4px;
+    }
+}
+@media only screen and (max-width: 991px){
+    .navbar-brand {
+        font-size: 30px;
+    }
+    ul.cl-effect-5>li>a {
+        padding: 0px 9px;
+    }
+    ul.nav-max-wid>li>a {
+        font-size: 15px;
+    }
+    ul.social {
+        padding: 0px 8px;
+    }
+    .carousel-caption h3 {
+        font-size: 15px;
+    }
+    .carousel-caption {
+        padding: 35px;
+    }
+    .adress ul li {
+        font-size: 16px;
+    }
+    section.best-quality p {
+        font-size: 15px;
+    }
+    .work-grids {
+        margin-bottom: 20px;
+    }
+    .latest-grid {
+        padding: 4px;
+        width: 50%;
+        float: left;
+    }
+    .border-line {
+        padding-top: 35px;
+    }
+    .border-line h3 {
+        font-size: 20px;
+    }
+    .border-line h3 {
+        margin-bottom: 8px;
+    }
+    .work-section {
+        padding: 3em 0;
+    }
+    .our-latest {
+        padding-bottom: 4em;
+    }
+    ul.callbacks_tabs.callbacks1_tabs {
+        left: 45%;
+        right: 45%;
+    }
+    .twitter-feeds {
+        padding: 5em 0em;
+    }
+    .caption h3 {
+        font-size: 27px;
+    }
+    .caption p {
+        font-size: 14px;
+    }
+    .work-grid-text p {
+        margin: 12px 0px;
+        font-size: 13px;
+    }
+    .about-grid p, .about-btm-text p, .service-box p, .srvice-text p {
+        font-size: 13px;
+    }
+    span.glyphicon.glyphicon-menu-right {
+        vertical-align: inherit;
+        font-size: 11px;
+    }
+    .callbacks_nav {
+        left: 5.2%;
+    }
+    .callbacks_nav.next {
+        left: 81.99%;
+    }
+    .test-bkp {
+        margin: 3px;
+    }
+    .about-top,.gallery-text,.typography,.contact {
+        padding: 3em 0;
+    }
+    .service-info p {
+        font-size: 13px;
+    }
+    .service-info h2 {
+        font-size: 32px;
+    }
+    .test-mon p {
+        font-size: 13px;
+    }
+    .service-info {
+        padding: 3em 0 0;
+    }
+    .service-box {
+        width: 33.3333%;
+        float: left;
+    }
+    .service-box h5 {
+        font-size: 16px;
+    }
+    .service-img-wid {
+        height: 270px;
+    }
+    .servic-bkp {
+        margin-bottom: 20px;
+    }
+    .service-pop {
+        padding-bottom: 3em;
+    }
+    .grid-gallery {
+        padding: 0em 0em 3em;
+    }
+}
+@media only screen and (max-width: 767px){
+    .nav-min-wid {
+        width: 100% !important;
+    }
+    .nav-max-wid {
+        width: 100% !important;
+    }
+    .navbar-nav {
+        margin: 7.5px 0px;
+    }
+    div#bs-example-navbar-collapse-1 {
+        text-align: center;
+    }
+    .navbar-nav>li>a {
+        line-height: 28px;
+    }
+    .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+        background-color: transparent;
+    }
+    .navbar-default .navbar-toggle {
+        border-color: transparent;
+    }
+    .navbar-default .navbar-toggle .icon-bar {
+        background-color: #C7AB84;
+    }
+    .carousel-caption {
+        padding: 20px;
+        bottom: 20%;
+    }
+    .btn-quality {
+        margin-left: 0em;
+        margin-top: 0.8em;
+    }
+    .border-line {
+        padding-top: 21px;
+    }
+    ul.callbacks_tabs.callbacks1_tabs {
+        left: 44%;
+        right: 44%;
+    }
+    .navbar-toggle {
+        padding: 9px 0px;
+        margin-right: 0;
+    }
+    .ft-top {
+        padding: 3em 0;
+    }
+    img.img-circle.abt-img.t {
+        width: 27%;
+        margin-top: 20px;
+    }
+    .abt-brp {
+        padding: 6px;
+    }
+    .slide-about {
+        padding: 0;
+        margin-top: 20px;
+    }
+    .callbacks_nav {
+        left: 0.2%;
+        top: 38%;
+    }
+    .callbacks_nav.next {
+        left: 93.3%;
+    }
+    .test-mon {
+        padding: 15px 15px;
+    }
+    .test-bkp {
+        margin: 2px;
+    }
+    .contact-right {
+        margin-top: 20px;
+    }
+    .navbar-brand {
+        padding: 12px 0px 0px 0px;
+    }
+}
+@media only screen and (max-width: 667px){
+    .navbar-brand {
+        padding: 12px 0px 0px 25px;
+    }
+}
+@media only screen and (max-width: 736px){
+    .navbar-brand {
+        padding: 12px 0px 0px 25px;
+    }
+}
+@media only screen and (max-width: 480px){
+    .carousel-caption h3 {
+        font-size: 13.5px;
+        line-height: 1.8em;
+    }
+    .carousel-caption {
+        background: rgba(106, 67, 28, 0.66);
+        right: 13%;
+        left: 13%;
+    }
+    .btn-quality {
+        margin-left: 1em;
+        margin-top: 0;
+    }
+    .btn {
+        padding: 6px 9px;
+        font-size: 12px;
+    }
+    .work-grid-text ul li {
+        width: 100%;
+        margin: 10px 0px;
+    }
+    .border-line h3 {
+        margin-bottom: 2px;
+        font-size: 13.5px;
+    }
+    .border-line {
+        padding-top: 10px;
+    }
+    .border-line p {
+        font-size: 13px;
+    }ul.callbacks_tabs.callbacks1_tabs {
+        left: 42%;
+        right: 42%;
+        bottom: -19%;
+    }
+    .caption {
+        height: 120px;
+        overflow: hidden;
+    }
+    .twitter-feeds {
+        padding: 4em 0em;
+    }
+    .callbacks_nav.next {
+        left: 90.3%;
+    }
+    .abt-brp {
+        padding: 20px;
+    }
+}
+@media only screen and (max-width: 414px){
+    .nav-min-wid{
+        margin: 0 !important;
+    }
+    .navbar-toggle {
+        margin-right: 0;
+    }
+    .carousel-caption {
+        padding: 12px;
+        bottom: 20%;
+        right: 7%;
+        left: 7%;
+    }
+    .about-top, .gallery-text, .typography, .contact {
+        padding: 1em 0;
+    }
+    .service-info {
+        padding: 1em 0 0;
+    }
+    .map iframe {
+        width: 100%;
+        height: 300px;
+    }
+    .carousel-caption h3 {
+        font-size: 12.5px;
+    }
+    section.best-quality p {
+        font-size: 13.5px;
+    }
+    .btn-quality {
+        margin-left: 2em;
+        margin-top: 0.5em;
+    }
+    .btn {
+        font-size: 12px;
+    }
+    .work-grid-text ul li {
+        width: 100%;
+        margin: 10px 0px;
+    }
+    .latest-grid {
+        padding: 4px;
+        width: 100%;
+    }
+    ul.callbacks_tabs.callbacks1_tabs {
+        left: 38%;
+        right: 38%;
+        bottom: -14%;
+    }
+    .twitter-feeds {
+        padding: 3em 0em;
+    }
+    .caption {
+        height: 125px;
+        overflow: hidden;
+    }
+    .ft-bottom p {
+        font-size: 13px;
+    }
+    .about-top h2,.service-info h2,.gallery-text h2,h2.hd,.contact h2 {
+        font-size: 21px;
+        padding: 7px 0px;
+    }
+    .abt-brp {
+        padding: 13px;
+        width: 100%;
+    }
+    img.img-circle.abt-img.t {
+        width: 50%;
+        margin: 0;
+    }
+    .callbacks_nav.next {
+        left: 88.2%;
+    }
+    .about-bottom {
+        padding-bottom: 3em;
+    }
+    .icon-grids-top {
+        padding: 2em 0em 2em;
+    }
+    .test-bkp {
+        margin: 5px 0px;
+        width: 100%;
+    }
+    .about-testimonials {
+        padding: 3em 0;
+    }
+    .icon-grids-top {
+        padding: 4em 0em 4em;
+    }
+    .service-box {
+        width: 100%;
+    }
+    .service-box:nth-child(2){
+        margin: 15px 0px;
+    }
+    .service-img-wid {
+        height: 200px;
+    }
+    .gallery-grid {
+        padding: 3px;
+        width: 100%;
+    }
+    .adress ul li {
+        width: 100%;
+        line-height: 1.5em;
+    }
+    .navbar-brand {
+        padding: 12px 0px 0px 0px;
+    }
+}
+@media only screen and (max-width: 320px){
+    .carousel-caption {
+        padding: 7px;
+        bottom: 28%;
+        right: 2%;
+        left: 2%;
+    }
+    .carousel-caption h3 {
+        font-size: 12px;
+        line-height: 1.7em;
+    }
+    section.best-quality p {
+        font-size: 13px;
+    }
+    .work-section {
+        padding: 2em 0;
+    }
+    .work-grid-text {
+        padding: 0;
+    }
+    .work-grid-text ul li {
+        font-size: 14px;
+        margin: 8px 0px;
+    }
+    .our-latest h2 {
+        font-size: 23px;
+    }
+    .latest-grid {
+        padding: 2px 0px;
+        width: 100%;
+    }
+    .border-line {
+        padding-top: 18px;
+    }
+    .border-line h3 {
+        font-size: 18px;
+    }
+    .border-line p {
+        font-size: 15px;
+    }
+    .about-top, .gallery-text, .typography, .contact {
+        padding: 0.5em 0 2em;
+    }
+    .map iframe {
+        height: 250px;
+    }
+    textarea.contact-area {
+        height: 135px;
+    }
+    .callbacks_nav.next {
+        left: 85.2%;
+    }
+    .gallery-text p,.service-info p {
+        font-size: 12.5px;
+    }
+    .service-info {
+        padding: 0.5em 0 0;
+    }
+    .service-pop {
+        padding-bottom: 2em;
+    }
+    .ft-top {
+        padding: 2em 0;
+    }
+.overlay-fra {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  background-color: rgba(0,0,0,0.5);
+}
+
+}
+/*--responsive-ends-here--*/
