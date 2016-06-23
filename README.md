@@ -31,4 +31,4 @@ Requirements:
 - PS3 accessible via the internal network.
 - A lot of joy of playing :)
 
-Official Website: <a href="http://ps3-demo.fazionet.com/" target="_blank">PS3 Manager</a>
+Visit the Official Website: <a href="http://ps3-demo.fazionet.com/" target="_blank">PS3 Manager</a>
