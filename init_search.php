@@ -1,6 +1,6 @@
 <?php
 
-
+include('mysql_conf.php');
 
 // LOADING SELECTION DEFAULT
 
