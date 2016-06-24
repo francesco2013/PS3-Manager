@@ -207,12 +207,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#52a1eb', end
 <form role="form" method="post">
 		
 		<div style="margin-left: auto; margin-right: auto;"><center>
-		<input style="width: 50%; " type="text" class="form-control" id="keyword" autocomplete="off" placeholder="Enter a game name ...">
+		<input style="width: 50%; margin-bottom: 5px;" type="text" class="form-control" id="keyword" autocomplete="off" placeholder="Enter a game name ...">
 			
 			<select style="width: 50%;" class="form-control" id="order" onchange="document.location.href = 'index.php?order=' + this.value">
 				%SELECT_ORD%
 		</select>
-		 <select style="margin-top: 5px; margin-right: 10px; width: auto; border: 1px solid #ccc; border-radius: 4px; padding: 6px 12px;"  id="numres" onchange="document.location.href = 'index.php?order=' + order.value + '&numres=' + numres.value">
+		 <select style="width: 50%;" class="form-control"  id="numres" onchange="document.location.href = 'index.php?order=' + order.value + '&numres=' + numres.value">
 		%SELECT_NUMRES%
 		</select><br><br>
 		%GAMES_NUMBER% games, %GAMES_NUMBER_NP% never played<br>%GLOB_SIZE% total Games size
@@ -303,7 +303,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#52a1eb', end
 	</script>
 
 
-<br><br>
 
 <div id='res_number'  style='font-weight: bold; margin-bottom: 20px;'>%SEARCH_DATA%</div>
 
