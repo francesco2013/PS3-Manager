@@ -1,4 +1,7 @@
 # PS3-Manager
+
+[ TO HAVE DOWNLOADED THE VERSION 0.30 or 0.31 PLEASE DELETE IT AND DOWNLOAD THS ONE ! THERE WAS A BUG THAT PREVENTS IT TO WORK ]
+
 PS3 Games Manager version 0.32 (beta) is a totally new and revolutionary manager application for the Playstation 3, that features a lot of new functions and makes managing your games a totally new experience.
 
 The software is written in PHP and Javascript, runs on Apache webserver (or any other webserver supporting PHP and running on Linux) and uses Webman APIs to control the PS3 remotely from any computer browser and any mobile device.
