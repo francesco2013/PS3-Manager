@@ -46,7 +46,7 @@ include("mysql_conf.php");
 				
 		foreach ($sql_up as $value) {
 			echo $value."\n\n";
-							$conn_chk = mysqli_connect('127.0.0.1', "root", "Sibille01ibm","ps3-games");
+							$conn_chk = mysqli_connect($mysql_host, $mysql_user, $mysql_password,$mysql_db);
 							$result_chk = $conn_chk->query($value);
 		}		
 					
