@@ -88,13 +88,6 @@ $sql = "SELECT id, name, isoname, covername, numplayed FROM games ";
 if(!$_GET['order']) {  $sql = "SELECT id, name, isoname, covername, numplayed FROM games ORDER BY lastplayed DESC ".$limit_str;} 
 
 
-
-    define('DB_USER', 'root');
-    define('DB_PASSWORD', 'Sibille01ibm');
-    define('DB_SERVER', '127.0.0.1');
-    define('DB_NAME', 'ps3-games');
-
-
     if (!$db = new mysqli(DB_SERVER, DB_USER, DB_PASSWORD, DB_NAME)) {
         die($db->connect_errno.' - '.$db->connect_error);
     }
