@@ -1,5 +1,7 @@
 <?php
 
+include('mysql_conf');
+
 // FUNCTION TO CONVERT TO READABLE FILESIZE
 
 	function FileSizeConvert($bytes)
@@ -64,10 +66,6 @@ $sql_count = "SELECT id FROM games";
 
 $sql_count_np = "SELECT id FROM games where numplayed='0'";
 
-    define('DB_USER', 'root');
-    define('DB_PASSWORD', 'Sibille01ibm');
-    define('DB_SERVER', '127.0.0.1');
-    define('DB_NAME', 'ps3-games');
 
 
     if (!$db_count_np = new mysqli(DB_SERVER, DB_USER, DB_PASSWORD, DB_NAME)) {
