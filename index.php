@@ -40,14 +40,6 @@ if(htmlspecialchars($_GET["command"]) == "gamedata") {
         header("Refresh:0; url=index.php");
 }
 
-// WAKE ON LAN POWER ON PS3
-
-if(htmlspecialchars($_GET["command"]) == "poweron") {
-    shell_exec('wakeonlan 00:1F:A7:AB:F4:A7');
-   header("Refresh:0; url=index.php");
-
-}
-
 
 // SHUTDOWN CALL
 
