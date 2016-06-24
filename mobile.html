@@ -214,56 +214,91 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#52a1eb', end
 		</select>
 		 <select style="margin-top: 5px; margin-right: 10px; width: auto; border: 1px solid #ccc; border-radius: 4px; padding: 6px 12px;"  id="numres" onchange="document.location.href = 'index.php?order=' + order.value + '&numres=' + numres.value">
 		%SELECT_NUMRES%
-		</select><br>
-		%GLOB_SIZE% total Games size
+		</select><br><br>
+		%GAMES_NUMBER% games, %GAMES_NUMBER_NP% never played<br>%GLOB_SIZE% total Games size
 		</center>
 		</div>
 		</form>
 
 <!-- AJAX to load Games list in real time. -->
 
-    <script type="text/javascript">
+   <script type="text/javascript">
+	
 	$(document).ready(function() {
 		$('#keyword').on('input', function() {
 			var searchKeyword = $(this).val();
-
-			if (searchKeyword.length >= 0) {
+			var numres = $('#numres').val();
+			
+			
+			if (searchKeyword.length > 0) {
+				
+				$('#order').fadeTo(10, 0.2);
+				$('#order').css("background-color","#A5A5A5");
+				$('#order').prop('disabled', 'disabled');
+				//
+				$('#numres').fadeTo(10, 0.2);
+				$('#numres').css("background-color","#A5A5A5");
+				$('#numres').prop('disabled', 'disabled'); 
+				//
+				
 				$.post('search.php', { keywords: searchKeyword }, function(data) {
 					$('div#content_games').empty();
-					$('div#res_number').empty();
+					
 
-
+                    var n = 1;
 					$.each(data, function() {
+						 
+						
+						 if(n == numres) { return false; }
+						
 						$('div#res_number').text(this.rescount);
-
+						
+			
 						if(this.name) {
-							$('div#content_games').append('<div class="col-md-4 col-xs-4 gallery-grid" style="margin-bottom: 10px; font-size: 95%"><a class="example-image-link" href="games.php?game=' + this.id + '"><img class="example-image effectfront" src="covers/'+ this.covername +'"><font color="black"><center>'+ this.name +'<center></font></a></div>');
-
+					
+							if(this.played == 0) {
+								
+								
+								$('div#content_games').append('<div class="col-md-4 col-xs-4 gallery-grid " style="margin-bottom: 10px; font-size: 95%"><a class="example-image" href="games.php?game=' + this.id + '"><img class="example-image" id="example-image" src="covers/'+ this.covername +'" ><font color="black"><center>'+ this.name +'<center></font></a></div>');
+								
+								
+							}
+							else {
+								$('div#content_games').append('<div class="col-md-4 col-xs-4 gallery-grid" style="margin-bottom: 10px; font-size: 95%"><a class="example-image" href="games.php?game=' + this.id + '"><img class="badgex example-image" id="example-image" src="covers/'+ this.covername +'"><span class="badgex">' + this.numplayed +'</span><font color="black"><center>'+ this.name +'<center></font></a></div>');	
+							}
 						}
-
-
-
+						 n++;
 					});
 				}, "json");
 			}
 
 
-			else {
+			else {	
+				$('#order').fadeTo(10, 1);
+				$('#order').css("background-color","#FFF");
+				$('#order').prop('disabled', false);			 
+				
+				$('#numres').fadeTo(10, 1);
+			    $('#numres').css("background-color","#FFF");
+				$('#numres').prop('disabled', false);
+				
+				$('#order').trigger('change');
+				
 				$.post('search.php', { keywords: searchKeyword }, function(data) {
-					$('div#content_games').empty()
+				
+				$('div#content_games').empty()
 					$('div#res_number').empty()
-
-
+					
+					var n = 0;
 					$.each(data, function() {
-
-						$('div#res_number').text(this.rescount);
-						$('div#content_games').append('<div class="col-md-4 col-xs-4 gallery-grid" style="font-size: 95%"><a class="example-image-link" href="games.php?game=' + this.id + '"><img class="example-image effectfront" src="covers/'+ this.covername +'"><font color="black"><center>'+ this.name +'<center></font></a></div>');
-
-
-					});
+						if(n == numres) { return false; }			
+							$('div#res_number').text(this.rescount);						
+							$('div#content_games').append('<div class="col-md-4 col-xs-4 gallery-grid" style="font-size: 95%"><a class="example-image-link" href="games.php?game=' + this.id + '"><img class="example-image" id="example-image" src="covers/'+ this.covername +'"><font color="black"><center>'+ this.name +'<center></font></a></div>');
+							n++;
+						});
 				}, "json");
 		};
-	});
+	});	
 });
 	</script>
 
