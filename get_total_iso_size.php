@@ -1,6 +1,6 @@
 <?php
 
-include('mysql_conf');
+include('mysql_conf.php');
 
 // FUNCTION TO CONVERT TO READABLE FILESIZE
 
