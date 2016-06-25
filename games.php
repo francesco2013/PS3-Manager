@@ -137,7 +137,7 @@ if ( $detect->isMobile() ) {
 
 // Any tablet device.
 elseif( $detect->isTablet() ){
-    $webpage = file_get_contents('tablets.html');
+    $webpage = file_get_contents('games.html');
 }
 
 else {
