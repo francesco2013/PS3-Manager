@@ -35,3 +35,14 @@ Requirements:
 - A lot of joy of playing :)
 
 Visit the Official Website: <a href="http://ps3-demo.fazionet.com/" target="_blank">PS3 Manager</a>
+
+
+<center>
+It took a lot of hours of work to develop this application.<br>
+If you like it and you find it useful please <b>donate</b> something to help me improving it.<br><br>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="Q4DNBKBYGFXMU">
+<input type="image" src="https://www.paypalobjects.com/en_US/NL/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form></center>
