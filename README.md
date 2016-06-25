@@ -34,7 +34,7 @@ Requirements:
 - PS3 accessible via the internal network.
 - A lot of joy of playing :)
 
-Visit the Official Website: <a href="http://ps3-demo.fazionet.com/" target="_blank">PS3 Manager</a>
+<center><b>Visit the Official Website: <a href="http://ps3-demo.fazionet.com/" target="_blank">PS3 Games Manager 0.33 beta</a></b></center>
 
 It took a lot of hours of work to develop this application.
 If you like it please <a href="http://ps3-demo.fazionet.com/download.php"><b>donate</b></a> something to help me improving it.
