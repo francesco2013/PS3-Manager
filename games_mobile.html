@@ -35,7 +35,7 @@
             <script src="js/jquery-popup-overlay-gh-pages/jquery.popupoverlay.js"></script>
 
         <!-- Function Popup Overlay -->
-        <script>
+         <script>
             $(document).ready(function() {
 
                 // Initialize the plugin
@@ -46,29 +46,24 @@
                     transition: 'all 0.3s'
                 });
                 $("#shutdown").html('Do you want to Shutdown the PS3 ?<br><br>');
-                $("#shutdown").append('<button style="margin-top: 10px;margin-right: 30px" onclick="CallUrl(\'http://play.fazionet.com/index.php?command=shutdown\')" class="shutdown_close">Yes</button>');
+                $("#shutdown").append('<button style="margin-top: 10px;margin-right: 30px" onclick="CallUrl(\'index.php?command=shutdown\')" class="shutdown_close">Yes</button>');
                 $("#shutdown").append('<button style="margin-top: 10px; padding-right: 10px; padding-left: 10px;" class="shutdown_close">No</button>');
 
                 $('#reboot').popup({
                     transition: 'all 0.3s'
                 });
                 $("#reboot").html('Do you want to Reboot the PS3 ?<br><br>');
-                $("#reboot").append('<button style="margin-top: 10px;margin-right: 30px" onclick="CallUrl(\'http://play.fazionet.com/index.php?command=reboot\')" class="reboot_close">Yes</button>');
+                $("#reboot").append('<button style="margin-top: 10px;margin-right: 30px" onclick="CallUrl(\'index.php?command=reboot\')" class="reboot_close">Yes</button>');
                 $("#reboot").append('<button style="margin-top: 10px; padding-right: 10px; padding-left: 10px;" class="reboot_close">No</button>');
 
                 $('#unmount').popup({
                     transition: 'all 0.3s'
                 });
                 $("#unmount").html('Do you want to Unmount the current Game ?<br><br>');
-                $("#unmount").append('<button style="margin-top: 10px;margin-right: 30px" onclick="CallUrl(\'http://play.fazionet.com/index.php?command=unmount\')" class="unmount_close">Yes</button>');
+                $("#unmount").append('<button style="margin-top: 10px;margin-right: 30px" onclick="CallUrl(\'index.php?command=unmount\')" class="unmount_close">Yes</button>');
                 $("#unmount").append('<button style="margin-top: 10px; padding-right: 10px; padding-left: 10px;" class="unmount_close">No</button>');
 
-				 $('#game_details').popup({
-                    transition: 'all 0.8s'
-                });
-				 
-				 $("#game_details").html('Loading data from server ...');
-                 $("#game_details").load('game_description.php?id=%GAME_ID%');
+
 
             });
 
