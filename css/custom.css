@@ -154,7 +154,11 @@ width: 50%;
 #game_desc a:hover {
     text-decoration: underline;
 	cursor: pointer;
-}				
+}
+
+.games_stats b {
+	color: #337AB7
+}
 				
 .tooltip {
 	display:none;
