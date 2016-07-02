@@ -1697,6 +1697,19 @@ h2.hd{
 
 
 
+  
+.search_stats div {
+	float: left;
+	margin-left: 50px;
+ } 
+
+#show_res b {
+	color: #337AB7
+}
+#res_number b {
+	color: #337AB7
+}  
+
 .fake-link {
     color: blue;
     text-decoration: underline;
