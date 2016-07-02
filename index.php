@@ -116,7 +116,7 @@ if ( $detect->isMobile() ) {
 
 // Any tablet device.
 elseif( $detect->isTablet() ){
-    $webpage = file_get_contents('base.html');
+    $webpage = file_get_contents('tablets.html');
 }
 
 else {
@@ -128,7 +128,6 @@ $menu_html = file_get_contents('menu.html');
 // INJECTING DATA INTO HTML
 
 $webpage = str_replace("%PS3_INFO%", $ps_status, $webpage);
-$webpage = str_replace('%SEARCH_DATA%',"", $webpage);
 $webpage = str_replace("%GAMES_LIST%", $game_entry, $webpage);
 $webpage = str_replace("%GAME_SEARCH_DIV%", $divgame, $webpage);
 $webpage = str_replace("%GAME_SEARCH_DIV%", $divgame, $webpage);
@@ -164,8 +163,7 @@ include("selector_html.php");
  $html_select = $head_select.$html_select.$tail_select;
  $webpage = str_replace("%SELECT_ORD%", $html_select, $webpage);
  
-
- $webpage = str_replace("%SELECT_NUMRES%", $html_numres, $webpage);
+$webpage = str_replace("%SELECT_NUMRES%", $html_numres, $webpage);
  
  $webpage = str_replace("%NUM_RES%", $numres, $webpage);
  

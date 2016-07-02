@@ -77,7 +77,7 @@ if (!empty($_POST['keywords'])) {
             $isoname = $raw_name.".iso";
             $covername = $raw_name.".jpg";
 
-			$text_rows = $data_rows." results found.";
+			$text_rows = $data_rows;
 
             $arr[] = array('id' => $id, 'name' => $gamename, 'isoname' => $isoname,'covername'=> $covername,'rescount'=> $text_rows,'played'=> $played, 'lastplayed'=> $lastplayed, 'numplayed'=> $numplayed);
         }
@@ -85,8 +85,8 @@ if (!empty($_POST['keywords'])) {
         echo json_encode($arr);
     }
 	else{
-		$data_rows = "No results found.";
-
+		//$data_rows = "No results found.";
+		$data_rows = 0;
 		$arr[] = array('rescount'=> $data_rows);
 
 		echo json_encode($arr);
@@ -116,7 +116,7 @@ else {
 			
             $isoname = $raw_name.".iso";
             $covername = $raw_name.".jpg";
-            $text_rows = $data_rows." results found.";
+            $text_rows = $data_rows;
             $arr[] = array('id' => $id, 'name' => $gamename, 'isoname' => $isoname,'covername'=> $covername, 'rescount'=> $text_rows);
 
         }

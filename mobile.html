@@ -149,7 +149,7 @@ function update() {
     </head>
     <!--body-->
         <body>
- <!--head-starts-->
+
             <div  id="home">
                 <div  >
 
@@ -216,7 +216,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#52a1eb', end
 					<select style="width: 58%; margin-top: 2px; margin-right: 10px;" class="form-control"  id="numres" onchange="document.location.href = 'index.php?order=' + order.value + '&numres=' + numres.value">
 					%SELECT_NUMRES%
 					</select>
-		<div style="padding-top: 13px"><b>%GAMES_NUMBER%</b> games, <b>%GAMES_NUMBER_NP%</b> never played<br><b>%GLOB_SIZE%</b> total Games size</div>
+		<div style="padding-top: 13px" class="games_stats"><b>%GAMES_NUMBER%</b> games, <b>%GAMES_NUMBER_NP%</b> never played<br><b>%GLOB_SIZE%</b> total Games size</div>
 		</center>
 		</div>
 		
@@ -224,10 +224,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#52a1eb', end
 <!-- AJAX to load Games list in real time. -->
 
 <script src="js/ajax_search.js"></script>
+<br>
+<div class="search_stats">
+<span id='show_res' style="" class="search_stats"></span><span id='res_number'  style="" class="search_stats"></span>
+</div>
 
 
-
-<div id='res_number'  style='font-weight: bold; margin-bottom: 20px;'>%SEARCH_DATA%</div>
 
 <div  id="content_games" class="drop-shadow curled" style='font-weight: bold; width: 90%; margin-left: 5%; margin-right: 5%' ><b>%GAMES_LIST%</b></div>
 

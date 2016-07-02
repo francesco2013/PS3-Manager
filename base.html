@@ -167,23 +167,20 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#52a1eb', end
 					%SELECT_NUMRES%
 					</select>
 			
-					<div style="margin-top: 8px"><b>%GAMES_NUMBER%</b> games, <b>%GAMES_NUMBER_NP%</b> never played, total ISOs size <b>%GLOB_SIZE%</b>.</div>
+					<div style="margin-top: 8px" class="games_stats"><b>%GAMES_NUMBER%</b> games, <b>%GAMES_NUMBER_NP%</b> never played, total ISOs size <b>%GLOB_SIZE%</b>.</div>
 					</center>
+	
 					</div>
 
 		
-		
-
 <!-- AJAX to load Games list in real time. -->
 
 <script src="js/ajax_search.js"></script>
 
-
-
 <br><br>
-
-
-<div id='res_number'  style='font-weight: bold; margin-bottom: 20px;'>%SEARCH_DATA%</div>
+<div class="search_stats">
+<span id='show_res'  class="search_stats"></span><span id='res_number' class="search_stats"></span>
+</div>
 
 <div  id="content_games" class="drop-shadow curled" style='font-weight: bold; width: 90%; margin-left: 5%; margin-right: 5%' ><b>%GAMES_LIST%</b></div>
 

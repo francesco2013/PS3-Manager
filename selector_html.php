@@ -121,14 +121,14 @@ if($_GET['numres']) {
 		$html_numres = '<option value="30" selected="selected">30 results</option>
 				<option value="50" >50 results</option>
 				<option value="100" >100 results</option>
-				<option value="All">All results</option>';
+				<option value="'.$games_number.'">All results</option>';
 	}
 	if($numres_select == "50") {
 		
 		$html_numres = '<option value="30" >30 results</option>
 				<option value="50" selected="selected">50 results</option>
 				<option value="100" >100 results</option>
-				<option value="All">All results</option>';
+				<option value="'.$games_number.'">All results</option>';
 	}
 	
 	if($numres_select == "100") {
@@ -136,15 +136,15 @@ if($_GET['numres']) {
 		$html_numres = '<option value="30" >30 results</option>
 				<option value="50" >50 results</option>
 				<option value="100" selected="selected">100 results</option>
-				<option value="All" >All results</option>';
+				<option value="'.$games_number.'" >All results</option>';
 	}
 	
-	if($numres_select == "All") {
+	if($numres_select == $games_number) {
 		
 		$html_numres = '<option value="30" >30 results</option>
 				<option value="50" >50 results</option>
 				<option value="100" >100 results</option>
-				<option value="All" selected="selected">All results</option>';
+				<option value="'.$games_number.'" selected="selected">All results</option>';
 	}
 	
 }
@@ -153,7 +153,7 @@ elseif(empty($_GET['numres'])) {
 	$html_numres = '<option value="30" selected="selected">30 results</option>
 				<option value="50" >50 results</option>
 				<option value="100" >100 results</option>
-				<option value="All">All results</option>';
+				<option value="'.$games_number.'">All results</option>';
 	
 }
 
