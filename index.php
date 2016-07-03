@@ -1,9 +1,15 @@
 <?php
 
-require_once ('config.php');
+
+error_reporting(E_ERROR | E_PARSE);
+date_default_timezone_set('Europe/Amsterdam');
 
 require_once 'mobiledetect/Mobile_Detect.php';
 $detect = new Mobile_Detect;
+
+require_once ('config.php');
+
+
 
 // Load global ISO size
 require_once('get_total_iso_size.php');
@@ -13,8 +19,6 @@ require_once ('init_search.php');
 
 
 
-error_reporting(E_ERROR | E_PARSE);
-date_default_timezone_set('Europe/Amsterdam');
 $directory = $ps3_folder;
 
 $x = 0;
@@ -116,7 +120,7 @@ if ( $detect->isMobile() ) {
 
 // Any tablet device.
 elseif( $detect->isTablet() ){
-    $webpage = file_get_contents('tablets.html');
+    $webpage = file_get_contents('base.html');
 }
 
 else {

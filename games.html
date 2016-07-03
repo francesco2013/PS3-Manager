@@ -34,20 +34,21 @@
             <!-- Include jQuery Popup Overlay -->
             <script src="js/jquery-popup-overlay-gh-pages/jquery.popupoverlay.js"></script>
 
-        <!-- Function Popup Overlay -->
-      <!-- Function Popup Overlay -->
+                <!-- Function Popup Overlay -->
         <script>
-                 $(document).ready(function() {
+            $(document).ready(function() {
+
                 // Initialize the plugin
                 $('#ps3_monitor').popup({
                     transition: 'all 0.3s'
                 });
-                $('#poweroff').popup({
+              $('#poweroff').popup({
                     transition: 'all 0.3s'
                 });
                 $("#poweroff").html('Do you want to Shutdown the PS3 ?<br><br>');
                 $("#poweroff").append('<button style="margin-top: 10px;margin-right: 30px; background: #CFE0F1" onclick="CallUrl(\'index.php?command=shutdown\')" class="poweroff_close">Yes</button>');
                 $("#poweroff").append('<button style="margin-top: 10px; padding-right: 10px; padding-left: 10px; background: #CFE0F1" class="poweroff_close">No</button>');
+
 
                 $('#reboot').popup({
                     transition: 'all 0.3s'
@@ -62,13 +63,20 @@
                 $("#unmount").html('Do you want to Unmount the current Game ?<br><br>');
                 $("#unmount").append('<button style="margin-top: 10px;margin-right: 30px; background: #CFE0F1" onclick="CallUrl(\'index.php?command=unmount\')" class="unmount_close">Yes</button>');
                 $("#unmount").append('<button style="margin-top: 10px; padding-right: 10px; padding-left: 10px; background: #CFE0F1" class="unmount_close">No</button>');
-            
-				$('#game_details').popup({
+				
+				
+				 $('#game_details').popup({
                     transition: 'all 0.8s'
-                }); 
+                });
+				 
 				 $("#game_details").html('Loading data from server ...');
                  $("#game_details").load('game_description.php?id=%GAME_ID%');
-		   });
+                
+
+
+            });
+
+
         </script>
 
         <!-- Functions to Control PS3 -->
@@ -87,11 +95,10 @@ function CallUrl(url) {
 }
         </script>
 
-<!-- PS3 Monitoring -->		
 
 <script> 
-function PS3Check_Status() {
-	$("#ps3_monitor").empty();
+			function PS3Check_Status() {
+				$("#ps3_monitor").html('');
 				
 				 $.ajax({
 					type: 'GET',
@@ -101,34 +108,11 @@ function PS3Check_Status() {
 								$("#ps3_monitor").append('<div style="text-align: center"><button style="margin-top: 10px; background: #CFE0F1" class="ps3_monitor_close">Close</button></div>');
 							},
 					});
-}; 
-</script>
-		
-<script type="text/javascript">
-function update() {
-	  $("#ps3_monitor").html('Loading..');
-	  $.ajax({
-			type: 'GET',
-			url: 'ps3_status_output.txt',
-			timeout: 50000,
-			success: function(data) {
-			$("#ps3_monitor").html(data);
+			};		 
+	</script>
 
-			window.setTimeout(update, 5000);
-				$("#ps3_monitor").append('<div style="text-align: center"><button style="margin-top: 10px; background: #CFE0F1" class="ps3_monitor_close">Close</button></div>');
-			},
-			error: function (XMLHttpRequest, textStatus, errorThrown) {
-				$("#notice_div").html('Timeout contacting server..');
-				window.setTimeout(update, 60000);
-				$("#ps3_monitor").append('<div style="text-align: center"><button style="margin-top: 10px; background: #CFE0F1" class="ps3_monitor_close">Close</button></div>');
-			}
-		});
-}
 
-	$(document).ready(function() {
-	   update();
-	});
-</script>
+
 
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8;" />
@@ -179,6 +163,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#52a1eb', end
 
 
   </div>
+
 </div>
  <!-- /.navbar-collapse -->
 
@@ -204,15 +189,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#52a1eb', end
                     <div class="container" >
                     <div class="gallery-text"  style='background-color: #F2F2F2;'>
 
-                 <!--        <h2 style="background-color: #3399AA; ">Playstation 3 GAMES</h2> -->
 
 
-
-
-
-
-
-<div id='content_games'  class="drop-shadow curled" style='font-weight: bold; margin-left: 20%; width: 60%;' ><b>%GAME_SELECTED%</b></div>
+<div id='content_games'  class="drop-shadow curled" style='font-weight: bold; margin-left: 20%; width: 60%;' ><b>%GAME_SELECTED%</b><br><br></div>
 
 
 
@@ -231,21 +210,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#52a1eb', end
                         <p style='color: white'>&copy; 2016 Fazionet.com All Rights Reserved. Design and Code By Francesco Fazio.</p>
                     </div>
                 </div>
-                <script type="text/javascript">
+               <script type="text/javascript">
                 $(document).ready(function() {
-                    /*
-                    var defaults = {
-                        containerID: 'toTop', // fading element id
-                        containerHoverID: 'toTopHover', // fading element hover id
-                        scrollSpeed: 1200,
-                        easingType: 'linear'
-                    };
-                    */
-
                     $().UItoTop({ easingType: 'easeOutQuart' });
-
                 });
-            </script>
+            </sc
 		      <a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1; "></span></a>
             </div>
         <!--footer-ends-->

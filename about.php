@@ -125,7 +125,8 @@ $ps_status = "<table><tr>".file_get_contents("ps3_status_output.txt")."</tr></ta
 
 if ( $detect->isMobile() ) {
     
-    $webpage = file_get_contents('mobile.html');
+    
+	header("Refresh:0; url=index.php");
 }
 
 // Any tablet device.
