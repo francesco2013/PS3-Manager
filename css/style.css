@@ -1704,10 +1704,10 @@ h2.hd{
  } 
 
 #show_res b {
-	color: #337AB7
+	color: #337AB7;
 }
 #res_number b {
-	color: #337AB7
+	color: #337AB7;
 }  
 
 .fake-link {
