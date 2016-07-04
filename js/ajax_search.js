@@ -51,12 +51,12 @@ $(document).ready(function() {
 							if(this.played == 0) {
 								
 								
-								$('#content_games').append('<div class="col-md-4 col-xs-4 gallery-grid " style="margin-bottom: 10px; font-size: 95%"><a class="example-image" href="games.php?game=' + this.id + '"><img class="example-image" id="example-image" src="covers/'+ this.covername +'" ><font color="black"><center>'+ this.name +'<center></font></a></div>');
+								$('#content_games').append('<div class="col-md-4 col-xs-4 gallery-grid" ><a  href="games.php?game=' + this.id + '"><img class="example-image" id="covers_search" src="covers/'+ this.covername +'" ></a><div id="game-name">'+ this.name +'</div></div>');
 								
 								
 							}
 							else {
-								$('#content_games').append('<div class="col-md-4 col-xs-4 gallery-grid" style="margin-bottom: 10px; font-size: 95%"><a class="example-image" href="games.php?game=' + this.id + '"><img class="badgex example-image" id="example-image" src="covers/'+ this.covername +'"><span class="badgex">' + this.numplayed +'</span><font color="black"><center>'+ this.name +'<center></font></a></div>');	
+								$('#content_games').append('<div class="col-md-4 col-xs-4 gallery-grid"><a  href="games.php?game=' + this.id + '"><img class="badgex example-image" id="covers_search" src="covers/'+ this.covername +'"><span class="badgex">' + this.numplayed +'</span></a><div id="game-name">'+ this.name +'</div></div>');	
 							}
 						}
 						 n++;
