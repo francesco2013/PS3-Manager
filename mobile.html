@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -34,10 +33,11 @@
         <script src="js/lightbox.js"></script>
         <!--script-->
 
+			
             <!-- Include jQuery Popup Overlay -->
             <script src="js/jquery-popup-overlay-gh-pages/jquery.popupoverlay.js"></script>
 
-        <!-- Function Popup Overlay -->
+            <!-- Function Popup Overlay -->
         <script>
             $(document).ready(function() {
 
@@ -49,38 +49,48 @@
                     transition: 'all 0.3s'
                 });
                 $("#shutdown").html('Do you want to Shutdown the PS3 ?<br><br>');
-                $("#shutdown").append('<button style="margin-top: 10px;margin-right: 30px" onclick="CallUrl(\'index.php?command=shutdown\')" class="shutdown_close">Yes</button>');
-                $("#shutdown").append('<button style="margin-top: 10px; padding-right: 10px; padding-left: 10px;" class="shutdown_close">No</button>');
+                $("#shutdown").append('<button style="margin-top: 10px;margin-right: 30px;background: #CFE0F1;" onclick="CallUrl(\'index.php?command=shutdown\')" class="shutdown_close">Yes</button>');
+                $("#shutdown").append('<button style="margin-top: 10px; padding-right: 10px; padding-left: 10px; background: #CFE0F1;" class="shutdown_close">No</button>');
 
                 $('#reboot').popup({
                     transition: 'all 0.3s'
                 });
                 $("#reboot").html('Do you want to Reboot the PS3 ?<br><br>');
-                $("#reboot").append('<button style="margin-top: 10px;margin-right: 30px" onclick="CallUrl(\'index.php?command=reboot\')" class="reboot_close">Yes</button>');
-                $("#reboot").append('<button style="margin-top: 10px; padding-right: 10px; padding-left: 10px;" class="reboot_close">No</button>');
+                $("#reboot").append('<button style="margin-top: 10px;margin-right: 30px;background: #CFE0F1;" onclick="CallUrl(\'index.php?command=reboot\')" class="reboot_close">Yes</button>');
+                $("#reboot").append('<button style="margin-top: 10px; padding-right: 10px; padding-left: 10px; background: #CFE0F1;" class="reboot_close">No</button>');
 
                 $('#unmount').popup({
                     transition: 'all 0.3s'
                 });
                 $("#unmount").html('Do you want to Unmount the current Game ?<br><br>');
-                $("#unmount").append('<button style="margin-top: 10px;margin-right: 30px" onclick="CallUrl(\'index.php?command=unmount\')" class="unmount_close">Yes</button>');
-                $("#unmount").append('<button style="margin-top: 10px; padding-right: 10px; padding-left: 10px;" class="unmount_close">No</button>');
+                $("#unmount").append('<button style="margin-top: 10px;margin-right: 30px; background: #CFE0F1;" onclick="CallUrl(\'index.php?command=unmount\')" class="unmount_close">Yes</button>');
+                $("#unmount").append('<button style="margin-top: 10px; padding-right: 10px; padding-left: 10px; background: #CFE0F1;" class="unmount_close">No</button>');  
 
-
-
+				$('#alertrot').popup({
+					transition: 'all 0.1s', opacity: 0.7, scrolllock: true
+				});
+				$("#alertrot").html('PS3 Games Manager v.%CURRENT_VERSION% is optimized<br>to work in <b>LANDSCAPE MODE</b> only.<br>Please rotate your device back to it');	
+               
             });
-
-
         </script>
+		
+		 <!-- DETECTS MOBILE ROTATION ALERTING USER -->
+<script>
+		window.addEventListener("orientationchange", function() {
+		
+				if(window.orientation == 90 || window.orientation == -90) {
+							$("#alert_open").trigger( "click" );
+				}
+	
+				else {		
+						 $("#alert_close").trigger( "click" );						
+				}	
+		},false);
+</script>	
 
         <!-- Functions to Control PS3 -->
 
         <script>
-
-
-        </script>
-        <script>
-
 function CallUrl(url) {
     $.ajax({
         type: 'GET',
@@ -95,16 +105,13 @@ function CallUrl(url) {
 
 <script type="text/javascript">
 function update() {
-
 	  $("#ps3_monitor").html('Loading..');
-
 	  $.ajax({
 	    type: 'GET',
 	    url: 'ps3_status_output.txt',
 	    timeout: 50000,
 	    success: function(data) {
 	      $("#ps3_monitor").html(data);
-
 	      window.setTimeout(update, 5000);
             $("#ps3_monitor").append('<div style="text-align: center"><button style="margin-top: 10px" class="ps3_monitor_close">Close</button></div>');
 	    },
@@ -113,14 +120,10 @@ function update() {
 	      window.setTimeout(update, 60000);
             $("#ps3_monitor").append('<div style="text-align: center"><button style="margin-top: 10px" class="ps3_monitor_close">Close</button></div>');
 	    }
-
 	});
-
 	}
-
 	$(document).ready(function() {
 	    update();
-
 	});
 </script>
 
@@ -174,7 +177,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#52a1eb', end
                                     <span class="link-3"><a class='links' style="color: black; text-decoration: none" onclick="return confirm('Enable/Disable USB Gamedata ?')" href="index.php?command=gamedata">%GAME_DATA_STATUS% Game Data</a></span><br>
                                     <span class="link-3 unmount_open" >Unmount</span><br>
                                     <span class="link-3 shutdown_open">Shutdown</span><br>
-                                    <span class="link-3 reboot_open">Reboot</span><br>
+                                    <span class="link-3 reboot_open">Reboot</span>
+									<span id="alert_open" class="alertrot_open" style="visibility: hidden;"></span>
+									<span id="alert_close" class="alertrot_close" style="visibility: hidden;"></span>
                                 </nav>
                              
 
@@ -190,10 +195,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#52a1eb', end
                           <div id="shutdown"  class="well popup_content" style="visibility: hidden;"></div>
                     <div id="reboot"  class="well popup_content" style="visibility: hidden;"></div>
                     <div id="unmount"  class="well popup_content" style="visibility: hidden;"></div>
+					<div id="alertrot"  class="well popup_content" style="visibility: hidden;"></div>
+					
 
 
 
-
+ 
 
 
                 </div>
@@ -230,7 +237,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#52a1eb', end
 
 
 
-<div  id="content_games" class="drop-shadow curled" style='font-weight: bold; width: 90%; margin-left: 5%; margin-right: 5%' ><b>%GAMES_LIST%</b></div>
+<div  id="content_games" class="drop-shadow curled" style='width: 90%; margin-left: 5%; margin-right: 5%' >%GAMES_LIST%</div>
+
 
 
 
@@ -259,4 +267,3 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#52a1eb', end
         <!--footer-ends-->
     </body>
 </html>
-

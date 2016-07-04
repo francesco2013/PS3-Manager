@@ -1,26 +1,20 @@
 <?php
-
 include('mysql_conf.php');
 
+require_once('trim_text.php');
+
 // LOADING SELECTION DEFAULT
-
 $selector = $_GET['order'];
-
 /// NUMBER OF RECORDS
 $numres = $_GET['numres'];
-
 if($_GET['numres'] == "All") { $limit_str = "";}
 elseif(empty($_GET['numres'])) { 
 	$numres = "30";
 	$limit_str = "LIMIT ".$numres;
 }
 else{ $limit_str = "LIMIT ".$numres; }
-
 //file_put_contents("selector.txt", $selector);
-
-
 $sql = "SELECT id, name, isoname, covername, numplayed FROM games ";
-
 	if($selector == "score") {
 		
 		$sql = "SELECT m.id,m.name,m.isoname,m.covername,m.numplayed
@@ -82,21 +76,14 @@ $sql = "SELECT id, name, isoname, covername, numplayed FROM games ";
 	 
 		";
 	}
-
-
-
 if(!$_GET['order']) {  $sql = "SELECT id, name, isoname, covername, numplayed FROM games ORDER BY lastplayed DESC ".$limit_str;} 
-
-
     if (!$db = new mysqli(DB_SERVER, DB_USER, DB_PASSWORD, DB_NAME)) {
         die($db->connect_errno.' - '.$db->connect_error);
     }
-
    
     $result = $db->query($sql) or die($mysql->error);
     if ($result->num_rows > 0) {
         while ($obj = $result->fetch_object()) {
-
             $raw_name = $obj->name;
             $id = $obj->id;
             $gamename = preg_replace('~\[(.+?)\]~', "", $raw_name);
@@ -108,32 +95,15 @@ if(!$_GET['order']) {  $sql = "SELECT id, name, isoname, covername, numplayed FR
 			
 			// CHECKING IF TITLE IS TOO LONG FOR THE HTML
 			
-			// CHECKING IF TITLE IS TOO LONG FOR THE HTML
-			
-			if(strlen($gamename) >= 30 AND strlen($gamename) < 40 ) { 
-				$gamename = substr($gamename, 0, -5);
-			}
-			if(strlen($gamename) >= 40 AND strlen($gamename) < 50 ) { 
-				$gamename = substr($gamename, 0, -10);
-			}
-			
-			if(strlen($gamename) >= 50 AND strlen($gamename) < 60 ) { 
-				$gamename = substr($gamename, 0, -15);
-			}
-			
-			if(strlen($gamename) >= 60 AND strlen($gamename) < 70 ) { 
-				$gamename = substr($gamename, 0, -30);
-			}
+				$gamename = trim_text($gamename, 30);
 			
 			if($numplayed == "0") {
-					$game_entry .= '<div class="col-md-4 col-xs-4 gallery-grid" style="margin-bottom: 10px; font-size: 95%"><a class="example-image-link" id="example-image" href="games.php?game='.$id.'"><img class="example-image" src="covers/'.$covername.'"><b><font color="black"><center>'.$gamename.'<center></font></b></a></div>';
+					$game_entry .= '<div class="col-md-4 col-xs-4 gallery-grid" ><a id="example-image" href="games.php?game='.$id.'"><img class="example-image" id="covers_search" src="covers/'.$covername.'"></a><div id="game-name">'.$gamename.'</div></div>';
 			}
 			else{
-				$game_entry .= '<div class="col-md-4 col-xs-4 gallery-grid" style="margin-bottom: 10px; font-size: 95%"><a class="example-image-link" id="example-image" href="games.php?game='.$id.'">
-				<img class="badgex example-image" src="covers/'.$covername.'"><span class="badgex">'.$numplayed.'</span><b><font color="black"><center>'.$gamename.'<center></font></b></a></div>';
+			$game_entry .= '<div class="col-md-4 col-xs-4 gallery-grid"><a  id="example-image" href="games.php?game='.$id.'">
+				<img class="badgex example-image" id="covers_search" src="covers/'.$covername.'"><span class="badgex">'.$numplayed.'</span></a><div id="game-name">'.$gamename.'</div></div>';
 			}
         }
     }
-
-
 ?>

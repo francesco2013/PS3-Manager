@@ -1,5 +1,6 @@
 <?php
 require_once('config.php');
+require_once('trim_text.php');
 
 /// NUMBER OF RECORDS
 $numres = $_POST['numres'];
@@ -48,22 +49,8 @@ if (!empty($_POST['keywords'])) {
             $gamename = preg_replace('~\[(.+?)\]~', "", $raw_name);
             $gamename = str_replace("_"," ", $gamename);
 			
-			// CHECKING IF TITLE IS TOO LONG FOR THE HTML
+	        $gamename = trim_text($gamename, 20);
 			
-			if(strlen($gamename) >= 30 AND strlen($gamename) < 40 ) { 
-				$gamename = substr($gamename, 0, -5);
-			}
-			if(strlen($gamename) >= 40 AND strlen($gamename) < 50 ) { 
-				$gamename = substr($gamename, 0, -10);
-			}
-			
-			if(strlen($gamename) >= 50 AND strlen($gamename) < 60 ) { 
-				$gamename = substr($gamename, 0, -15);
-			}
-			
-			if(strlen($gamename) >= 60 AND strlen($gamename) < 70 ) { 
-				$gamename = substr($gamename, 0, -20);
-			}
 			
 			// Checking if the game has been played before
 			
@@ -110,9 +97,7 @@ else {
 			
 			// CHECKING IF TITLE IS TOO LONG FOR THE HTML
 			
-			if(strlen($gamename) >= 30) { 
-				$gamename = substr($gamename, 0, -10);;
-			}
+			$gamename = trim_text($gamename, 30);
 			
             $isoname = $raw_name.".iso";
             $covername = $raw_name.".jpg";

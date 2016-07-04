@@ -16,8 +16,6 @@ $id = $_GET['game'];
 
 $sql_call = file_get_contents('http://'.$_SERVER['SERVER_NAME'].'/game_display_sql.php?id='.$id);
 
-
-
 $directory = $ps3_folder;
 
 $x = 0;
@@ -148,10 +146,7 @@ $game_record = file_get_contents('complete_game_record.html');
 
 
 
-$webpage = str_replace("%TOTAL_VISITS%", $total_visits, $webpage);
-$webpage = str_replace("%UNIQUE_VISITS%", $unique_visits, $webpage);
-$webpage = str_replace("%DOWNLOAD_COUNT%", $download_count, $webpage);
-$webpage = str_replace("%NOW%", $now, $webpage);
+$webpage = str_replace("%CURRENT_VERSION%", $app_version, $webpage);
 $webpage = str_replace("%PS3_INFO%", $ps_status, $webpage);
 $webpage = str_replace("%GAME_SELECTED%", $game_record, $webpage);
 $webpage = str_replace("%GAME_ID%", $id, $webpage);

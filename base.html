@@ -43,7 +43,7 @@
 		<!-- Start css3menu.com HEAD section -->
 			<link rel="stylesheet" href="css/css3menu1/style.css" type="text/css" /><style type="text/css">._css3m{display:none}</style>
 		<!-- End css3menu.com HEAD section -->
-
+		
 
        
        <!-- Function Popup Overlay -->
@@ -182,9 +182,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#52a1eb', end
 <span id='show_res'  class="search_stats"></span><span id='res_number' class="search_stats"></span>
 </div>
 
-<div  id="content_games" class="drop-shadow curled" style='font-weight: bold; width: 90%; margin-left: 5%; margin-right: 5%' ><b>%GAMES_LIST%</b></div>
 
+		
 
+<div  id="content_games" class="drop-shadow curled" style='width: 90%; margin-left: 5%; margin-right: 5%' >%GAMES_LIST%</div>
+
+	<!-- Auto-resize text  -->
+<script src="js/jquery.fittext.js"></script>
+<script>
+	jQuery("#gallery-txt").fitText();
+</script>
 
 
                             <div id="clearfix" class="clearfix"></div>

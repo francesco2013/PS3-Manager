@@ -101,11 +101,6 @@ if(htmlspecialchars($_GET["command"]) == "unmount") {
 }
 
 
-// INSERTING SEARCH AJAX SEARCH HTML
-
-$divgame = file_get_contents("ajax_search_div.txt");
-
-
 // GETTING STATUS HTML FILE FROM ps3_status_output.php
 
 $ps_status = "<table><tr>".file_get_contents("ps3_status_output.txt")."</tr></table>";
@@ -131,10 +126,9 @@ $menu_html = file_get_contents('menu.html');
 
 // INJECTING DATA INTO HTML
 
+$webpage = str_replace("%CURRENT_VERSION%", $app_version, $webpage);
 $webpage = str_replace("%PS3_INFO%", $ps_status, $webpage);
 $webpage = str_replace("%GAMES_LIST%", $game_entry, $webpage);
-$webpage = str_replace("%GAME_SEARCH_DIV%", $divgame, $webpage);
-$webpage = str_replace("%GAME_SEARCH_DIV%", $divgame, $webpage);
 $webpage = str_replace("%GAMES_NUMBER%", $games_number, $webpage);
 $webpage = str_replace("%GAMES_NUMBER_NP%", $games_number_np, $webpage);
 $webpage = str_replace("%GLOB_SIZE%", $glob_size, $webpage);
