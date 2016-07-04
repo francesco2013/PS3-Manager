@@ -771,8 +771,10 @@ h3.test {
 }
 /*--gallery-starts--*/
 .gallery-text {
+	width: 100%;
+	margin:0px auto;
     text-align: center;
-     padding: 4em 0;
+    padding: 4em 0;
 }
 .gallery-text h2{
     font-family: 'Hind Vadodara';
@@ -998,6 +1000,9 @@ h3.test {
 img.example-image {
     width: 75%;
 }
+img.example-image-mobile {
+    width: 50%;
+}
 
 #example-image img  {
  margin: 20px;
@@ -1062,10 +1067,9 @@ span.badgex {
 
 .gallery-grid{
     padding: 3px;
+	margin-bottom: 10px;
 }
-.grid-gallery{
-    padding: 0em 0em 6em;
-}
+
 /*--gallery-ends--*/
 .contact{
     padding: 4em 0;
@@ -1297,7 +1301,7 @@ h2.hd{
     .test-bkp {
         margin: 3px;
     }
-    .about-top,.gallery-text,.typography,.contact {
+    .about-top,.typography,.contact {
         padding: 3em 0;
     }
     .service-info p {
@@ -1328,9 +1332,7 @@ h2.hd{
     .service-pop {
         padding-bottom: 3em;
     }
-    .grid-gallery {
-        padding: 0em 0em 3em;
-    }
+    
 }
 @media only screen and (max-width: 767px){
     .nav-min-wid {
@@ -1483,7 +1485,7 @@ h2.hd{
         right: 7%;
         left: 7%;
     }
-    .about-top, .gallery-text, .typography, .contact {
+    .about-top, .typography, .contact {
         padding: 1em 0;
     }
     .service-info {
@@ -1529,7 +1531,7 @@ h2.hd{
     .ft-bottom p {
         font-size: 13px;
     }
-    .about-top h2,.service-info h2,.gallery-text h2,h2.hd,.contact h2 {
+    .about-top h2,.service-info h2,h2.hd,.contact h2 {
         font-size: 21px;
         padding: 7px 0px;
     }
@@ -1621,7 +1623,7 @@ h2.hd{
     .border-line p {
         font-size: 15px;
     }
-    .about-top, .gallery-text, .typography, .contact {
+    .about-top, .typography, .contact {
         padding: 0.5em 0 2em;
     }
     .map iframe {
@@ -1633,7 +1635,7 @@ h2.hd{
     .callbacks_nav.next {
         left: 85.2%;
     }
-    .gallery-text p,.service-info p {
+    .service-info p {
         font-size: 12.5px;
     }
     .service-info {
@@ -1709,6 +1711,10 @@ h2.hd{
 #res_number b {
 	color: #337AB7;
 }  
+
+#game-name-text {
+	color: yellow;
+}
 
 .fake-link {
     color: blue;

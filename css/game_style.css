@@ -802,9 +802,7 @@ img.example-image {
 .gallery-grid{
     padding: 3px;
 }
-.grid-gallery{
-    padding: 0em 0em 6em;
-}
+
 /*--gallery-ends--*/
 .contact{
     padding: 4em 0;
@@ -1067,10 +1065,8 @@ h2.hd{
     .service-pop {
         padding-bottom: 3em;
     }
-    .grid-gallery {
-        padding: 0em 0em 3em;
-    }
-}
+
+
 @media only screen and (max-width: 767px){
     .nav-min-wid {
         width: 100% !important;
