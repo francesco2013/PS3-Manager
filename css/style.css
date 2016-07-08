@@ -1712,8 +1712,9 @@ h2.hd{
 	color: #337AB7;
 }  
 
-#game-name-text {
-	color: yellow;
+.game-name  {
+	font-weight: bold;
+	color: #337AB7;
 }
 
 .fake-link {
