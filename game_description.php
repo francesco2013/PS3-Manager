@@ -28,7 +28,7 @@ if (!$db = new mysqli(DB_SERVER, DB_USER, DB_PASSWORD, DB_NAME)) {
 
 
 //echo "<div style='margin-left: auto; margin-right: auto;'>"	
-echo "<p style='font-size: small; text-align: justify;text-justify: inter-word;'>".$game_det."</p><br><br>";
+echo "<p style='font-size: small; color: #337AB7; text-align: justify;text-justify: inter-word;'>".$game_det."</p><br><br>";
 echo '<button style="margin-top: 10px; padding-right: 10px; padding-left: 10px; background: #CFE0F1" class="game_details_close">Done</button>';
 //echo "</div>";
 ?>

@@ -46,6 +46,9 @@ include('mysql_conf.php');
 
 $sql_count = "SELECT id FROM games";
 
+ 
+
+
     if (!$db_count = new mysqli(DB_SERVER, DB_USER, DB_PASSWORD, DB_NAME)) {
         die($db_count->connect_errno.' - '.$db_count->connect_error);
     }

@@ -1,8 +1,11 @@
 <?php
 
+
 include('mysql_conf.php');
 
 $id = $_GET['id'];
+
+	
 
 // FUNCTION TO CONVERT TO READABLE FILESIZE
 
@@ -52,7 +55,7 @@ $id = $_GET['id'];
 	
 	
 
-$game_record_html = file_get_contents('game_record.html');
+$game_record_html = file_get_contents('html_files/game_record.html');
 
 if($id == "random") {
 	
@@ -115,7 +118,7 @@ if($id == "random") {
 			$game_record_html = str_replace("%GAME_DESC%",$description,$game_record_html);
 			
 		}
-		file_put_contents('complete_game_record.html',$game_record_html);
+		file_put_contents('html_files/complete_game_record.html',$game_record_html);
     }
 
 ?>
