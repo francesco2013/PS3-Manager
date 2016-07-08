@@ -31,13 +31,11 @@
 				 $('#game_details').popup({
                     transition: 'all 0.3s'
                 });
-				 
 				 $("#game_details").html('Loading data from server ...');
-                 $("#game_details").load('game_description.php?id=534');
-
-
+                 $("#game_details").load('game_description.php?id=%GAME_ID%');
+							 
+				 $('#alertrot').popup({
+					transition: 'all 0.1s', opacity: 0.90
+				});
+				$("#alertrot").html('PS3 Games Manager v.0.34b is optimized<br>to work in <b>PORTRAIT MODE</b> only.<br>Please rotate your device back to it');
             });
-
-
-        
-

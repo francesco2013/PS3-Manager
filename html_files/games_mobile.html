@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+
+
+    <title>PLAYSTATION 3 GAMES MANAGER</title>
+
+<!--fonts-->
+            <link rel="stylesheet" href="css/lightbox.css" type="text/css" media="all" />
+        <!--owl-css-->
+            <link href="css/owl.carousel.css" rel="stylesheet" type="text/css">
+		<!--bootstrap-->
+			 <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<!--coustom css-->
+			<link href="css/mobile_style.css" rel="stylesheet" type="text/css"/>
+
+			<!--coustom css-->
+			<link href="css/custom_mobile.css" rel="stylesheet" type="text/css"/>
+			
+       
+		<!--default-js-->
+			<script src="js/jquery-2.1.4.min.js"></script>
+		<!--bootstrap-js-->
+			<script src="js/bootstrap.min.js"></script>
+		<!--script-->
+        <script type="text/javascript" src="js/move-top.js"></script>
+        <script type="text/javascript" src="js/easing.js"></script>
+        <!--script-->
+        <script src="js/lightbox.js"></script>
+        <!--script-->
+
+            <!-- Include jQuery Popup Overlay -->
+            <script src="js/jquery-popup-overlay-gh-pages/jquery.popupoverlay.js"></script>
+
+        <!-- Function Popup Overlay -->
+        <script>
+            $(document).ready(function() {
+                // Initialize the plugin
+                $('#ps3_monitor').popup({
+                    transition: 'all 0.3s'
+                });
+                $('#shutdown').popup({
+                    transition: 'all 0.3s'
+                });
+                $("#shutdown").html('Do you want to Shutdown the PS3 ?<br><br>');
+                $("#shutdown").append('<button style="margin-top: 10px;margin-right: 30px;background: #CFE0F1;" onclick="CallUrl(\'index.php?command=shutdown\')" class="shutdown_close">Yes</button>');
+                $("#shutdown").append('<button style="margin-top: 10px; padding-right: 10px; padding-left: 10px; background: #CFE0F1;" class="shutdown_close">No</button>');
+                $('#reboot').popup({
+                    transition: 'all 0.3s'
+                });
+                $("#reboot").html('Do you want to Reboot the PS3 ?<br><br>');
+                $("#reboot").append('<button style="margin-top: 10px;margin-right: 30px;background: #CFE0F1;" onclick="CallUrl(\'index.php?command=reboot\')" class="reboot_close">Yes</button>');
+                $("#reboot").append('<button style="margin-top: 10px; padding-right: 10px; padding-left: 10px; background: #CFE0F1;" class="reboot_close">No</button>');
+                $('#unmount').popup({
+                    transition: 'all 0.3s'
+                });
+                $("#unmount").html('Do you want to Unmount the current Game ?<br><br>');
+                $("#unmount").append('<button style="margin-top: 10px;margin-right: 30px; background: #CFE0F1;" onclick="CallUrl(\'index.php?command=unmount\')" class="unmount_close">Yes</button>');
+                $("#unmount").append('<button style="margin-top: 10px; padding-right: 10px; padding-left: 10px; background: #CFE0F1;" class="unmount_close">No</button>');
+				
+				$('#alertrot').popup({
+					transition: 'all 0.1s', opacity: 0.90
+				});
+				$("#alertrot").html('PS3 Games Manager v.%CURRENT_VERSION% is optimized<br>to work iin <b>PORTRAIT MODE</b> only.<br>Please rotate your device back to it');	
+               
+				 $('#game_details').popup({
+                    transition: 'all 0.3s'	
+                });
+				 $("#game_details").html('Loading data from server ...');
+                 $("#game_details").load('game_description.php?id=%GAME_ID%');
+            });
+        </script>
+
+<!-- DETECTS MOBILE ROTATION ALERTING USER -->
+		
+<script>
+		window.addEventListener("orientationchange", function() {
+		
+				if(window.orientation == 90 || window.orientation == -90) {
+						$("#alert_open").trigger( "click" );
+						document.body.style.overflow = "hidden";
+				}
+				else {	
+						$("#alert_close").trigger( "click" );
+						document.body.style.overflow = "visible";
+				}	
+		},false);
+</script>	
+
+        <!-- Functions to Control PS3 -->
+
+        <script>
+        </script>
+        <script>
+function CallUrl(url) {
+    $.ajax({
+        type: 'GET',
+        url: url
+    });
+}
+        </script>
+
+
+
+
+
+<script type="text/javascript">
+function update() {
+	  $("#ps3_monitor").html('Loading..');
+	  $.ajax({
+	    type: 'GET',
+	    url: 'ps3_status_output.txt',
+	    timeout: 50000,
+	    success: function(data) {
+	      $("#ps3_monitor").html(data);
+	      window.setTimeout(update, 5000);
+            $("#ps3_monitor").append('<div style="text-align: center"><button style="margin-top: 10px;background: #CFE0F1;" class="ps3_monitor_close">Close</button></div>');
+	    },
+	    error: function (XMLHttpRequest, textStatus, errorThrown) {
+	      $("#notice_div").html('Timeout contacting server..');
+	      window.setTimeout(update, 60000);
+            $("#ps3_monitor").append('<div style="text-align: center"><button style="margin-top: 10px;background: #CFE0F1;" class="ps3_monitor_close">Close</button></div>');
+	    }
+	});
+	}
+	$(document).ready(function() {
+	    update();
+	});
+</script>
+
+
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8;" />
+		<meta name="keywords" content="" />
+
+        <!--script-->
+    </head>
+    <!--body-->
+        <body>
+		
+ <!--head-starts-->
+            <div  id="home">
+                <div  >
+
+
+                      <div class="container" >
+
+                        <div  style="background: rgba(82,161,235,1);
+background: -moz-linear-gradient(top, rgba(82,161,235,1) 0%, rgba(240,241,242,1) 98%, rgba(242,242,242,1) 99%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(82,161,235,1)), color-stop(98%, rgba(240,241,242,1)), color-stop(99%, rgba(242,242,242,1)));
+background: -webkit-linear-gradient(top, rgba(82,161,235,1) 0%, rgba(240,241,242,1) 98%, rgba(242,242,242,1) 99%);
+background: -o-linear-gradient(top, rgba(82,161,235,1) 0%, rgba(240,241,242,1) 98%, rgba(242,242,242,1) 99%);
+background: -ms-linear-gradient(top, rgba(82,161,235,1) 0%, rgba(240,241,242,1) 98%, rgba(242,242,242,1) 99%);
+background: linear-gradient(to bottom, rgba(82,161,235,1) 0%, rgba(240,241,242,1) 98%, rgba(242,242,242,1) 99%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#52a1eb', endColorstr='#f2f2f2', GradientType=0 ); padding: 0px 0px 15px 0px; text-align: center;">
+							<img src="images/PSlogo.png" style= "width:80%; height:auto;">
+
+                            <div style="position: relative;  padding: 0px 0px 0px 0px;">
+
+
+                                <nav id="nav-1">
+                                    <span class="link-3 ps3_monitor_open" style="cursor: pointer;" >PS3 System Status</span><br>
+                                    <a class="link-3" href="index.php" style="cursor: pointer;">Games</a><br>
+                                    <span class="link-3" style="cursor: pointer;"><a class='links' style="color: black; text-decoration: none" onclick="return confirm('Enable/Disable USB Gamedata ?')" href="index.php?command=gamedata">%GAME_DATA_STATUS% Game Data</a></span><br>
+                                    <span class="link-3 unmount_open" style="cursor: pointer;">Unmount</span><br>
+                                    <span class="link-3 shutdown_open" style="cursor: pointer;">Shutdown</span><br>
+                                    <span class="link-3 reboot_open" style="cursor: pointer;">Reboot</span>
+									<span id="alert_open" class="alertrot_open" style="visibility: hidden;"></span>
+									<span id="alert_close" class="alertrot_close" style="visibility: hidden;"></span>
+                                </nav>
+                             
+
+
+  </div>
+</div>
+ <!-- /.navbar-collapse -->
+
+                      </div>
+					
+					<div id="ps3_monitor"  class="well popup_content" style="visibility: hidden;" ></div>
+                    <div id="shutdown"  class="well popup_content" style="visibility: hidden;"></div>
+                    <div id="reboot"  class="well popup_content" style="visibility: hidden;"></div>
+                    <div id="unmount"  class="well popup_content" style="visibility: hidden;"></div>
+					<div id="alertrot"  class="well popup_content" style="visibility: hidden;"></div>
+					<div id="game_details"  class="popup_content drop-shadow curled" style="margin-left: 10%;margin-top: 10%;visibility: hidden; width: 80%;"></div>
+
+
+
+
+                </div>
+
+            <!--header-ends-->
+            <!--gallery-starts-->
+                <div class="gallery"  >
+                    <div class="container" >
+                    <div class="gallery-text"  style='background-color: #F2F2F2;'>
+
+                 <!--        <h2 style="background-color: #3399AA; ">Playstation 3 GAMES</h2> -->
+
+
+
+
+<div id='content_games'  class="drop-shadow curled" style='font-weight: bold; margin-left: auto; margin-right: auto; width: 100%; height: auto;' ><b>%GAME_SELECTED%</b></div>
+
+
+
+
+                            <div  id="clearfix" class="clearfix"></div>
+                        </div>
+                        
+                    </div>
+            </div>
+            <!--gallery-starts-->
+            <!--footer-starts-->
+            <div class="footer">
+                
+                <div class="ft-bottom">
+                    <div class="container" >
+                        <p style='color: white'>&copy; 2016 Fazionet.com All Rights Reserved. Design and Code By Francesco Fazio.</p>
+                    </div>
+                </div>
+              <script type="text/javascript">
+                $(document).ready(function() {
+                    $().UItoTop({ easingType: 'easeOutQuart' });
+                });
+            </sc
+		      <a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1; "></span></a>
+            </div>
+        <!--footer-ends-->
+    </body>
+</html>

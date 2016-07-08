@@ -6,12 +6,12 @@ $(document).ready(function() {
 			
 			if (searchKeyword.length > 0) {
 				
-				$('#order').fadeTo(5, 0.2);
-				$('#order').css("background-color","#A5A5A5");
+				$('#order').fadeTo('fast', 0.4);
+				$('#order').css("background-color","#EBEBEB");
 				$('#order').prop('disabled', 'disabled');
 				//
-				$('#numres').fadeTo(5, 0.2);
-				$('#numres').css("background-color","#A5A5A5");
+				$('#numres').fadeTo('fast', 0.4);
+				$('#numres').css("background-color","#EBEBEB");
 				$('#numres').prop('disabled', 'disabled'); 
 				//
 				
@@ -51,12 +51,12 @@ $(document).ready(function() {
 							if(this.played == 0) {
 								
 								
-								$('#content_games').append('<div class="col-md-4 col-xs-4 gallery-grid" ><a  href="games.php?game=' + this.id + '"><img class="example-image" id="covers_search" src="covers/'+ this.covername +'" ></a><div id="game-name">'+ this.name +'</div></div>');
+								$('#content_games').append('<div class="col-md-4 col-xs-4 gallery-grid" ><a  href="games.php?game=' + this.id + '"><img class="example-image" id="covers_search" src="covers/'+ this.covername +'" ></a><div class="game-name"><b>'+ this.name +'</b></div></div>');
 								
 								
 							}
 							else {
-								$('#content_games').append('<div class="col-md-4 col-xs-4 gallery-grid"><a  href="games.php?game=' + this.id + '"><img class="badgex example-image" id="covers_search" src="covers/'+ this.covername +'"><span class="badgex">' + this.numplayed +'</span></a><div id="game-name">'+ this.name +'</div></div>');	
+								$('#content_games').append('<div class="col-md-4 col-xs-4 gallery-grid"><a  href="games.php?game=' + this.id + '"><img class="badgex example-image" id="covers_search" src="covers/'+ this.covername +'"><span class="badgex">' + this.numplayed +'</span></a><div class="game-name"><b>'+ this.name +'</b></div></div>');	
 							}
 						}
 						 n++;
