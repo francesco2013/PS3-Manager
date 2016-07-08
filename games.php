@@ -125,24 +125,24 @@ $ps_status = "<table><tr>".file_get_contents("ps3_status_output.txt")."</tr></ta
 
 if ( $detect->isMobile() ) {
     
-    $webpage = file_get_contents('games_mobile.html');
+    $webpage = file_get_contents('html_files/games_mobile.html');
 }
 
 // Any tablet device.
 elseif( $detect->isTablet() ){
-    $webpage = file_get_contents('games.html');
+    $webpage = file_get_contents('html_files/games.html');
 }
 
 else {
-    $webpage = file_get_contents('games.html');
+    $webpage = file_get_contents('html_files/games.html');
 }
 
-$menu_html = file_get_contents('menu.html');
+$menu_html = file_get_contents('html_files/menu.html');
 
 
 // INJECTING DATA INTO HTML
 
-$game_record = file_get_contents('complete_game_record.html');
+$game_record = file_get_contents('html_files/complete_game_record.html');
 
 
 

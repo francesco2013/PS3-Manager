@@ -67,11 +67,11 @@ $mount = $_GET["mount"];
 $sql_call = file_get_contents("http://".$_SERVER['SERVER_NAME']."/game_update_sql.php?name=".$mount);
 
    $web_call_unmount = file_get_contents("http://".$ps3_ip."/mount.ps3/unmount");
-   sleep(3);
    $web_call_mount = file_get_contents("http://".$ps3_ip."/mount.ps3/net0/PS3ISO/".$mount);
 
  if($game_data_force == "Y") {
    // ---- FORCING ENABLE GAME DATA -----
+   sleep(3);
    $web_call_gamedata = file_get_contents("http://".$ps3_ip."/extgd.ps3");
 
    if(strpos($web_call_gamedata, 'Disabled') === false) {
@@ -108,31 +108,43 @@ $ps_status = "<table><tr>".file_get_contents("ps3_status_output.txt")."</tr></ta
 
 // CHOOSING HTML FILE ACCORDING TO THE DETECTED DEVICE
 
+// Mobile Devices
 if ( $detect->isMobile() ) {
 
-    $webpage = file_get_contents('mobile.html');
+    $webpage = file_get_contents('html_files/mobile.html');
+	$menu_html = file_get_contents('html_files/menu_mobile.html');
 }
 
 // Any tablet device.
 elseif( $detect->isTablet() ){
-    $webpage = file_get_contents('base.html');
+    $webpage = file_get_contents('html_files/base.html');
+	$menu_html = file_get_contents('html_files/menu.html');
 }
 
+// Desktops
 else {
-    $webpage = file_get_contents('base.html');
+    $webpage = file_get_contents('html_files/base.html');
+	$menu_html = file_get_contents('html_files/menu.html');
 }
 
-$menu_html = file_get_contents('menu.html');
+$version_writer = file_get_contents('js/popups.js');
+$version_writer = str_replace("%CURRENT_VERSION%", $app_version, $version_writer);
+file_put_contents('js/popups.js',$version_writer);
+
+$popups_control = file_get_contents('html_files/popups.html');
+
 
 // INJECTING DATA INTO HTML
+$webpage = str_replace("%POPUPS_CONTROL%", $popups_control, $webpage); // <--- THIS ONE FOR FIRST
 
-$webpage = str_replace("%CURRENT_VERSION%", $app_version, $webpage);
 $webpage = str_replace("%PS3_INFO%", $ps_status, $webpage);
+//$webpage = str_replace("%CURRENT_VERSION%", $app_version, $webpage);
 $webpage = str_replace("%GAMES_LIST%", $game_entry, $webpage);
 $webpage = str_replace("%GAMES_NUMBER%", $games_number, $webpage);
 $webpage = str_replace("%GAMES_NUMBER_NP%", $games_number_np, $webpage);
 $webpage = str_replace("%GLOB_SIZE%", $glob_size, $webpage);
 $webpage = str_replace("%NAV_MENU%", $menu_html, $webpage);
+
 /// LOADING GAME DATA STATUS FILE
 
 $game_data_set = file_get_contents("game_data_status.txt");

@@ -123,6 +123,7 @@ $ps_status = "<table><tr>".file_get_contents("ps3_status_output.txt")."</tr></ta
 
 // CHOOSING HTML FILE ACCORDING TO THE DETECTED DEVICE
 
+// Mobile Devices
 if ( $detect->isMobile() ) {
     
     
@@ -131,14 +132,17 @@ if ( $detect->isMobile() ) {
 
 // Any tablet device.
 elseif( $detect->isTablet() ){
-    $webpage = file_get_contents('about.html');
+    $webpage = file_get_contents('html_files/about.html');
+	$menu_html = file_get_contents('html_files/menu.html');
 }
 
+// Desktops
 else {
-    $webpage = file_get_contents('about.html');
+    $webpage = file_get_contents('html_files/about.html');
+	$menu_html = file_get_contents('html_files/menu.html');
 }
 
-$menu_html = file_get_contents('menu.html');
+$popups_control = file_get_contents('html_files/popups.html');
 
 
 // INJECTING DATA INTO HTML

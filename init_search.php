@@ -98,11 +98,11 @@ if(!$_GET['order']) {  $sql = "SELECT id, name, isoname, covername, numplayed FR
 				$gamename = trim_text($gamename, 30);
 			
 			if($numplayed == "0") {
-					$game_entry .= '<div class="col-md-4 col-xs-4 gallery-grid" ><a id="example-image" href="games.php?game='.$id.'"><img class="example-image" id="covers_search" src="covers/'.$covername.'"></a><div id="game-name">'.$gamename.'</div></div>';
+					$game_entry .= '<div class="col-md-4 col-xs-4 gallery-grid" ><a id="example-image" href="games.php?game='.$id.'"><img class="example-image" id="covers_search" src="covers/'.$covername.'"></a><div class="game-name"><b>'.$gamename.'</b></div></div>';
 			}
 			else{
 			$game_entry .= '<div class="col-md-4 col-xs-4 gallery-grid"><a  id="example-image" href="games.php?game='.$id.'">
-				<img class="badgex example-image" id="covers_search" src="covers/'.$covername.'"><span class="badgex">'.$numplayed.'</span></a><div id="game-name">'.$gamename.'</div></div>';
+				<img class="badgex example-image" id="covers_search" src="covers/'.$covername.'"><span class="badgex">'.$numplayed.'</span></a><div class="game-name"><b>'.$gamename.'</b></div></div>';
 			}
         }
     }
