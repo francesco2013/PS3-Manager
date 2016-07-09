@@ -1,6 +1,6 @@
 # PS3 Games Manager
 
-[ FOR THOSE THAT HAVE DOWNLOADED THE VERSIONS 0.30 OR 0.31, PLEASE DELETE IT AND DOWNLOAD THIS ONE (0.35) ! THERE WAS A BUG THAT PREVENTED IT TO WORK ]
+[ FOR THOSE THAT HAVE DOWNLOADED THE VERSIONS 0.30 OR 0.31, PLEASE DELETE IT AND DOWNLOAD THIS ONE (<b>0.35</b>) ! THERE WAS A BUG THAT PREVENTED IT TO WORK ]
 
 <b>PS3 Games Manager version 0.35 (beta)</b> is a totally new and revolutionary manager application for the <b>Playstation 3</b>, that features a lot of new functions and makes managing your games a totally new experience.
 
