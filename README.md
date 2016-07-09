@@ -12,18 +12,18 @@ A version that will be able to run on a <b>Windows</b> webserver supporting PHP 
 
 A brief list of the features is:
 
-- Automatic recognition of the game ISO fle and automatic download of the CD cover and all the game details from Metacritic (Game name, Release date, Score, Description, Publisher, Developer, Category)
+- Automatic recognition of the game ISO fle and automatic download of the CD cover and all the game details from <b>Metacritic</b> (Game name, Release date, Score, Description, Publisher, Developer, Category)
 - Very nice web graphic interface and extremely easy to use.
 - Launch and Umount games straight from the web interface.
 - Reboot and Shutdown the PS3 from the web interface.
-- Enable disable game data for external USB drive connected to the PS3.
-- Monitors and displays CPU temp, Internal PS3 hd free space, USB external PS3 hd free space, Total number of games ISOs added.
+- Enable disable game data for external <b>USB drive</b> connected to the <b>PS3</b>.
+- Monitors and displays <b>CPU temp, Internal PS3 hd free space, USB external PS3 hd free space, Total number of games ISOs added</b>.
 
 - Automatically keeps track of every time you play a game and counts the times adding a IOS style badge to the CD cover displayed on the web page search results.
-- Ajax js interface to search for game name, description, category, publisher, developer in real time.
+- <b>Ajax js interface</b> to search for game name, description, category, publisher, developer in real time.
 - Order results by Metacritic Score, Last played Games, Date Added Games, Games Never Played Yet, Name and Random selection.
 - Easy configuration and installation.
-- Voice recognition (English only so far).
+- <b>Voice recognition</b> (English only so far).
 - Lots more features to come.
 
 Requirements:
