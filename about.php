@@ -124,7 +124,7 @@ $ps_status = "<table><tr>".file_get_contents("ps3_status_output.txt")."</tr></ta
 // CHOOSING HTML FILE ACCORDING TO THE DETECTED DEVICE
 
 // Mobile Devices
-if ( $detect->isMobile() ) {
+if ( $detect->isMobile() && !$detect->isTablet()){
     
     
 	header("Refresh:0; url=index.php");
@@ -150,6 +150,7 @@ $popups_control = file_get_contents('html_files/popups.html');
 
 
 $webpage = str_replace("%PS3_INFO%", $ps_status, $webpage);
+$webpage = str_replace("%LATEST_VERSION%", $app_version, $webpage);
 $webpage = str_replace("%NAV_MENU%", $menu_html, $webpage);
 
 

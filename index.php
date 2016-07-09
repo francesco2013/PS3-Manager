@@ -109,7 +109,7 @@ $ps_status = "<table><tr>".file_get_contents("ps3_status_output.txt")."</tr></ta
 // CHOOSING HTML FILE ACCORDING TO THE DETECTED DEVICE
 
 // Mobile Devices
-if ( $detect->isMobile() ) {
+if ( $detect->isMobile() && !$detect->isTablet()){
 
     $webpage = file_get_contents('html_files/mobile.html');
 	$menu_html = file_get_contents('html_files/menu_mobile.html');
