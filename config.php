@@ -8,14 +8,13 @@ $ps3_folder = "/path/to/isos/files/PS3/PS3ISO";
 // Default is "N".
 $game_data_force = "N";
 
+// WWW LOCAL PATH (The WWW path where your PS3 Manager files are)
+$local_path = "/path/to/www/ps3-manager/html";
+
 // <------ DON'T CHANGE ANYTHING AFTER THIS LINE ------>
 
 // PS3 Games Manager Version
 $app_version ="0.35b";
-
-// WWW LOCAL PATH (The WWW path where your PS3 Manager files are)
-$local_path = $_SERVER['DOCUMENT_ROOT'];
-
 
 // Include Mysql Configuration
 include("mysql_conf.php");
