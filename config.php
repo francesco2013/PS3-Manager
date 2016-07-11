@@ -12,7 +12,7 @@ $local_path = "/path/to/www/ps3-manager/html";
 
 // DON'T CHANGE ANYTHING AFTER THIS LINE
 // PS3 Games Manager Version
-$app_version ="0.36";
+$app_version ="0.36b";
 // Include Mysql Configuration
 include("mysql_conf.php");
 ?>
