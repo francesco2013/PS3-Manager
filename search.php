@@ -49,7 +49,7 @@ if (!empty($_POST['keywords'])) {
             $gamename = preg_replace('~\[(.+?)\]~', "", $raw_name);
             $gamename = str_replace("_"," ", $gamename);
 			
-	        $gamename = trim_text($gamename, 20);
+	        $gamename = trim_text($gamename, 15);
 			
 			
 			// Checking if the game has been played before
