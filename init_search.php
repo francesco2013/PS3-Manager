@@ -95,7 +95,7 @@ if(!$_GET['order']) {  $sql = "SELECT id, name, isoname, covername, numplayed FR
 			
 			// CHECKING IF TITLE IS TOO LONG FOR THE HTML
 			
-				$gamename = trim_text($gamename, 30);
+				$gamename = trim_text($gamename, 15);
 			
 			if($numplayed == "0") {
 					$game_entry .= '<div class="col-md-4 col-xs-4 gallery-grid" ><a id="example-image" href="games.php?game='.$id.'"><img class="example-image" id="covers_search" src="covers/'.$covername.'"></a><div class="game-name"><b>'.$gamename.'</b></div></div>';
