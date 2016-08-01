@@ -42,37 +42,12 @@ function clean($string) {
 
 if($ps3_up == "up") {
 
-// Connecting to API Server
-// Timeout in seconds
-$timeout = 2;
+$html['cpursx_ps3'] = file_get_contents('http://'.$ps3_ip.'/cpursx_ps3');
 
-$fp = fsockopen($ps3_ip, 7887, $errno, $errstr, $timeout);
-
-if ($fp) {
-    fwrite($fp, "PS3 GETTEMP\r\n");
-    fwrite($fp, "DISCONNECT\r\n\r\n");
-
-    stream_set_blocking($fp, TRUE);
-    stream_set_timeout($fp,$timeout);
-    $info = stream_get_meta_data($fp);
-
-    while ((!feof($fp)) && (!$info['timed_out'])) {
-        $res .= fgets($fp, 4096);
-        $info = stream_get_meta_data($fp);
-        ob_flush;
-        flush();
-    }
-
-
-}
-
-
-$discard_data = "220 OK: PS3 Manager API Server v1.
-230 OK: Connected to PS3 Manager API Server.
-200 ";
-
-$cpu_temp = str_replace($discard_data,"",$res);
-$cpu_temp_expl = explode("|",$cpu_temp);
+$str = $html['cpursx_ps3'];
+$res = strip_tags($str);
+$res = str_replace('CPU: ','' ,$res);
+$cpu_temp_expl = explode("|",$res);
 $cpu_temp = $cpu_temp_expl[0];
 
 // Load Disk Data
@@ -81,11 +56,46 @@ $ps_status_page = file_get_contents("http://".$ps3_ip."/cpursx.ps3");
 $ps_files_page = file_get_contents("http://".$ps3_ip);
 
 
-//preg_match('~U: (.*?)�~', $ps_status_page, $cpu);
+
+
+preg_match('~<b>(.*?)<br>~', $ps_status_page, $webman_ver);
 preg_match('~DD: (.*?)M~', $ps_status_page, $disk_int);
 preg_match('~bel> (.*?)<h~', $ps_status_page, $uptime);
+preg_match('~MEM: (.*?)<br~', $ps_status_page, $memory_free);
+preg_match('~/a>/(.*?)</font><hr>~', $ps_status_page, $mounted_game);
+preg_match('~Play">&#9737;</label>(.*?)<br>~', $ps_status_page, $play_time);
+preg_match('~Startup">&#8986;</label>(.*?)<hr>~', $ps_status_page, $ps3_uptime);
+preg_match('~<a class="s" href="/setup.ps3">(.*?)<br><br>~', $ps_status_page, $ps3_firmware);
+
+
+preg_match('~\[(.*?)\]~', $mounted_game[0], $game_code);
+
+
 preg_match('~<a href="/mount.ps3/dev_usb006"(.*?)MB</a>~', $ps_files_page, $disk_ext);
 
+$memory_free = str_replace('MEM: ','',$memory_free);
+
+$play_time = str_replace('Play">','',$play_time[0]);
+$play_time = strip_tags($play_time);
+
+$ps3_uptime = str_replace('Startup">','',$ps3_uptime[0]);
+$ps3_uptime = strip_tags($ps3_uptime);
+
+$ps3_firmware = str_replace('Firmware :','',$ps3_firmware[1]);
+$ps3_firmware = str_replace(':','',$ps3_firmware);
+
+$webman_ver = strip_tags($webman_ver[0]);
+$webman_ver = str_replace('webMAN','',$webman_ver);
+$webman_ver = str_replace('MOD','',$webman_ver);
+
+// Adjusting Mounted Game Name
+
+$mounted_game = str_replace('/a>/PS3ISO/','',strip_tags($mounted_game[0]));
+$mounted_game = str_replace('_',' ',$mounted_game);
+$mounted_game = str_replace('[','',$mounted_game);
+$mounted_game = str_replace(']','',$mounted_game);
+$mounted_game = str_replace($game_code[1],'',$mounted_game);
+$mounted_game = str_replace('.iso','',$mounted_game);
 
 preg_match('~>(.*?)<~', $disk_ext[0], $disk_ext_free);
 $dsk_ext_free[0] =  str_replace('> ','' , $disk_ext_free[0]);
@@ -94,47 +104,66 @@ $dsk_ext_free[0] =  str_replace(' MB','' , $disk_ext_free[0]);
 
 $disk_int_free = clean($disk_int[1]);
 $disk_ext_free = clean($dsk_ext_free[0]);
-$uptime = str_replace("bel> ","",$uptime[0]);
-$uptime = preg_replace('/[^A-Za-z0-9\-]/', '', $uptime);
+
+
+
+
 
 $disk_int_free = str_replace("-", "", $disk_int_free);
 $disk_ext_free = str_replace("-", "",$disk_ext_free);
 
+//if($mounted_game == '') { $mounted_game = "No Game Mounted"; }
+
 }
 
-
-
+//var_dump($mounted_game);
 /// LOADING PS3 STATUS DATA
 
-$ps_status = "<table>";
+$ps_status = "<table >";
 
 
  if($ps3_up == "down") {
 		
 		$ps_status .="
-		<tr><td style='color: #3399AA; font-weight: bold;'>PS3 System</td><td style='color: red; font-weight: bold;'>PS3
-		OFFLINE !
-		</td></tr>";
+		<tr><td style='color: #3399AA;'><b>PS3 System</b></td><td style='color: red; font-weight: bold; text-align: center; width: auto;'>OFFLINE</td></tr>";
         
         $cpu_temp = "UNAVAILABLE";
         $disk_int_free = "UNAVAILABLE";
         $disk_ext_free = "UNAVAILABLE";
+		$memory_free[0] = "UNAVAILABLE";
+		$ps3_uptime = "UNAVAILABLE";
+		$ps3_firmware = "UNAVAILABLE";
+		$webman_ver = "UNAVAILABLE";
       }
 
     else {
-        $ps_status .= "<tr><td style='color: #3399AA; font-weight: bold;'>PS3 System</td><td style='color: green; font-weight: bold;'>ONLINE</td></tr>";
-        $degrees = "&#176";
+        $ps_status .= "<tr><td style='color: #3399AA;'><b>PS3 System</b></td><td style='color: green; font-weight: bold; text-align: center; width: auto;'>ONLINE</td></tr>";
         $mb_free = " MB free";
     }
 
-    $ps_status .= "<tr><td><font color='#3399AA'><b>PS3 IP</b></font></td><td style='color: black'>".$ps3_ip."</td>";
-    $ps_status .= "<tr><td><font color='#3399AA'><b>CPU Temp</b></font></td><td style='color: black'>".$cpu_temp.$degrees."</td>";
-    $ps_status .= "<tr><td><font color='#3399AA'><b>HD Internal</b></font></td><td style='color: black'>".$disk_int_free.$mb_free."</td></tr>";
-    $ps_status .= "<tr><td><font color='#3399AA'><b>HD USB</b></font></td><td style='color: black'>".$disk_ext_free.$mb_free."</td></tr>";
-
-    $ps_status .= "<tr><td><font color='#3399AA'><b>Last Check</b></font></td><td style='color: black'>".date('d-m-Y H:i:s')."</td></tr>";
-    $ps_status .= "<tr><td><font color='#3399AA'><b>Total Games</b></font></td><td style='color: black'>".$result->num_rows."</td></tr>";
+    $ps_status .= "<tr><td><font color='#3399AA'><b>PS3 IP</b></font></td><td style='color: black; text-align: center;  width: auto;'>".$ps3_ip."</td>";
+	$ps_status .= "<tr><td><font color='#3399AA'><b>PS3 Uptime</b></font></td><td style='color: black; text-align: center;  width: auto;'>".$ps3_uptime."</td>";
+	$ps_status .= "<tr><td><font color='#3399AA'><b>PS3 FW</b></font></td><td style='color: black; text-align: center;  width: auto;'>".$ps3_firmware."</td>";
+	$ps_status .= "<tr><td><font color='#3399AA'><b>webMAN Version</b></font></td><td style='color: black; text-align: center;  width: auto;'>".$webman_ver."</td>";
+	$ps_status .= "<tr><td><font color='#3399AA'><b>CPU Temp</b></font></td><td style='color: black; text-align: center;  width: auto;'>".$cpu_temp."</td>";
+	$ps_status .= "<tr><td><font color='#3399AA'><b>Free RAM</b></font></td><td style='color: black; text-align: center;  width: auto;'>".$memory_free[0]."</td>";
+    $ps_status .= "<tr><td><font color='#3399AA'><b>HD Internal</b></font></td><td style='color: black; text-align: center;  width: auto;'>".$disk_int_free.$mb_free."</td></tr>";
+    $ps_status .= "<tr><td><font color='#3399AA'><b>HD USB</b></font></td><td style='color: black; text-align: center;  width: auto;'>".$disk_ext_free.$mb_free."</td></tr>";
+	if($mounted_game != '') {
+		$ps_status .= "<tr id='game_mounted'><td><font color='#3399AA'><b>Mounted Game</b></font></td><td style='color: black; text-align: center; font-size: normal; padding-right: 10px; width: auto;'>".$mounted_game."</td></tr>";
+		if($play_time != '')  { 
+			$ps_status .= "<tr id='time_play'><td><font color='#3399AA'><b>Game Play Time</b></font></td><td style='color: black; text-align: center; width: auto;'>".$play_time."</td></tr>";
+		}
+		else{
+			$ps_status .= "<tr id='time_play'><td><font color='#3399AA'><b>Game Play Time</b></font></td><td style='color: black; text-align: center; width: auto;'>&#9737; 0d 00:00:00</td></tr>";
+		}
+	}
 	
+	
+	
+	$ps_status .= "<tr><td><font color='#3399AA'><b>Total Games</b></font></td><td style='color: black; text-align: center;  width: auto;'>".$result->num_rows."</td></tr>";
+	//$ps_status .= "<tr><td><font color='#3399AA'><b>PS3 Manager</b></font></td><td style='color: black; text-align: center;  width: auto;'>v.".$app_version."</td>";
+	$ps_status .= "<tr><td><font color='#3399AA'><b>Last Check</b></font></td><td style='color: black; text-align: center;  width: auto;'>".date('d-m-Y H:i:s')."</td></tr>";
 file_put_contents($local_path."/ps3_status_output.txt", $ps_status);
 
 ?>

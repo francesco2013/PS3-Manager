@@ -49,7 +49,7 @@ if (!empty($_POST['keywords'])) {
             $gamename = preg_replace('~\[(.+?)\]~', "", $raw_name);
             $gamename = str_replace("_"," ", $gamename);
 			
-	        $gamename = trim_text($gamename, 15);
+	        $gamename = trim_text($gamename, 18);
 			
 			
 			// Checking if the game has been played before
@@ -97,7 +97,7 @@ else {
 			
 			// CHECKING IF TITLE IS TOO LONG FOR THE HTML
 			
-			$gamename = trim_text($gamename, 30);
+			$gamename = trim_text($gamename, 18);
 			
             $isoname = $raw_name.".iso";
             $covername = $raw_name.".jpg";

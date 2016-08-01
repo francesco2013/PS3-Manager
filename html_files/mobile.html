@@ -71,27 +71,29 @@ function CallUrl(url) {
 
 <script type="text/javascript">
 function update() {
-	  $("#ps3_monitor").html('Loading..');
+	  
 	  $.ajax({
-	    type: 'GET',
-	    url: 'ps3_status_output.txt',
-	    timeout: 50000,
-	    success: function(data) {
-	      $("#ps3_monitor").html(data);
-	      window.setTimeout(update, 5000);
-            $("#ps3_monitor").append('<div style="text-align: center"><button style="margin-top: 10px; background: #CFE0F1;" class="ps3_monitor_close">Close</button></div>');
-	    },
-	    error: function (XMLHttpRequest, textStatus, errorThrown) {
-	      $("#notice_div").html('Timeout contacting server..');
-	      window.setTimeout(update, 60000);
-            $("#ps3_monitor").append('<div style="text-align: center"><button style="margin-top: 10px; background: #CFE0F1;" class="ps3_monitor_close">Close</button></div>');
-	    }
-	});
-	}
-	$(document).ready(function() {
-	    update();
+			type: 'GET',
+			url: 'ps3_status_output.txt',
+			timeout: 50000,
+			success: function(data) {
+			$("#ps3_monitor").html(data);
+
+			window.setTimeout(update, 500);
+				$("#ps3_monitor").append('<div style="text-align: center"><button style="margin-top: 10px; background: #CFE0F1" class="ps3_monitor_close">Close</button></div>');
+			},
+			error: function (XMLHttpRequest, textStatus, errorThrown) {
+				$("#notice_div").html('Timeout contacting server..');
+				window.setTimeout(update, 60000);
+				$("#ps3_monitor").append('<div style="text-align: center"><button style="margin-top: 10px; background: #CFE0F1" class="ps3_monitor_close">Close</button></div>');
+			}
+		});
+}
+		$(document).ready(function() {
+	   update();
 	});
 </script>
+
 
 
 

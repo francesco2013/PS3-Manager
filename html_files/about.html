@@ -75,7 +75,7 @@ function PS3Check_Status() {
 		
 <script type="text/javascript">
 function update() {
-	  $("#ps3_monitor").html('Loading..');
+	 
 	  $.ajax({
 			type: 'GET',
 			url: 'ps3_status_output.txt',
@@ -83,7 +83,7 @@ function update() {
 			success: function(data) {
 			$("#ps3_monitor").html(data);
 
-			window.setTimeout(update, 5000);
+			window.setTimeout(update, 500);
 				$("#ps3_monitor").append('<div style="text-align: center"><button style="margin-top: 10px; background: #CFE0F1" class="ps3_monitor_close">Close</button></div>');
 			},
 			error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -93,11 +93,11 @@ function update() {
 			}
 		});
 }
-
-	$(document).ready(function() {
+		$(document).ready(function() {
 	   update();
 	});
 </script>
+
 
 
 

@@ -7,7 +7,7 @@ $detect = new Mobile_Detect;
 
 
 error_reporting(E_ERROR | E_PARSE);
-date_default_timezone_set('Europe/Amsterdam');
+
 $directory = $ps3_folder;
 
 $x = 0;
@@ -36,19 +36,6 @@ if(htmlspecialchars($_GET["command"]) == "gamedata") {
 
 if(htmlspecialchars($_GET["command"]) == "shutdown") {
 
-    // MESSAGING
-
-    $fp = fsockopen($ps3_ip, 7887, $errno, $errstr, 30);
-    if (!$fp) {
-        echo "$errstr ($errno)<br />\n";
-    } else {
-        fwrite($fp, "PS3 NOTIFY Shutting down PS3");
-        fclose($fp);
-    }
-
-
-
-
     $web_call_gamedata = file_get_contents("http://".$ps3_ip."/shutdown.ps3");
     header("Refresh:0; url=index.php");
 
@@ -57,58 +44,15 @@ if(htmlspecialchars($_GET["command"]) == "shutdown") {
 // REBOOT CALL
 if(htmlspecialchars($_GET["command"]) == "reboot") {
 
-
-    // MESSAGING
-
-    $fp = fsockopen($ps3_ip, 7887, $errno, $errstr, 30);
-    if (!$fp) {
-        echo "$errstr ($errno)<br />\n";
-    } else {
-        fwrite($fp, "PS3 NOTIFY Rebooting PS3");
-        fclose($fp);
-    }
-
-
     $web_call_gamedata = file_get_contents("http://".$ps3_ip."/restart.ps3");
     header("Refresh:0; url=index.php");
 }
 
-// MOUNT CALL
-if(htmlspecialchars($_GET["mount"])) {
-
-$mount = $_GET["mount"];
-
-
-   $web_call_unmount = file_get_contents("http://".$ps3_ip."/mount.ps3/unmount");
-   sleep(4);
-   $web_call_mount = file_get_contents("http://".$ps3_ip."/mount.ps3/net0/PS3ISO/".$mount);
-
- if($game_data_force == "Y") {
-   // ---- FORCING ENABLE GAME DATA -----
-   $web_call_gamedata = file_get_contents("http://".$ps3_ip."/extgd.ps3");
-
-   if(strpos($web_call_gamedata, 'Disabled') === false) {
-       $game_data_status = "Enabled";
-       file_put_contents("game_data_status.txt", $game_data_status);
-    }
-
-   else {
-
-       $web_call_gamedata = file_get_contents("http://".$ps3_ip."/extgd.ps3");
-
-       $game_data_status = "Enabled";
-       file_put_contents("game_data_status.txt", $game_data_status);
-   }
- }
-   // -------- END ENABLE GAME DATA -------
-
-    header("Refresh:0; url=index.php");
-    }
-//}
 
 // UNMOUNT CALL
 
 if(htmlspecialchars($_GET["command"]) == "unmount") {
+	$sql_call = file_get_contents("http://".$_SERVER['SERVER_NAME']."/game_update_timeplay.php?id=".$id);
     $web_call_gamedata = file_get_contents("http://".$ps3_ip."/mount.ps3/unmount");
     header("Refresh:0; url=index.php");
 }

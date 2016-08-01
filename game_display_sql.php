@@ -2,6 +2,7 @@
 
 
 include('mysql_conf.php');
+include('time_calc.php');
 
 $id = $_GET['id'];
 
@@ -65,7 +66,7 @@ if($id == "random") {
 	
 }
 
-    $sql = "SELECT id, name, isoname, covername, numplayed, lastplayed FROM games WHERE ID='".$id."'";
+    $sql = "SELECT id, name, time_played, isoname, covername, numplayed, lastplayed FROM games WHERE ID='".$id."'";
 	$sql_details = "SELECT name,category,developer,publisher,score,rlsdate,description FROM game_details WHERE ID='".$id."'";
 	
     $result = $db->query($sql) or die($mysql->error);
@@ -84,14 +85,16 @@ if($id == "random") {
             $gamename = str_replace("_"," ", $gamename);
             $isoname = $raw_name.".iso";
             $covername = $raw_name.".jpg";
+			$time_played = secondsToTime($obj->time_played);
 			$isofilesize = filesize($obj->isoname);
 			$isofilesize = FileSizeConvert($isofilesize);
-
+			
             
 			$game_record_html = str_replace("%ISO_NAME%",$isoname,$game_record_html);
 			$game_record_html = str_replace("%GAME_COVER%",$covername,$game_record_html);
 			$game_record_html = str_replace("%NUM_PLAYED%",$numplayed,$game_record_html);
 			$game_record_html = str_replace("%LAST_PLAYED%",$lastplayed,$game_record_html);
+			$game_record_html = str_replace("%TIME_PLAYED%",$time_played,$game_record_html);
 			$game_record_html = str_replace("%ISO_SIZE%",$isofilesize,$game_record_html);
 			
 		

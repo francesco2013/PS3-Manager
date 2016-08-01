@@ -2,7 +2,7 @@
 
 
 error_reporting(E_ERROR | E_PARSE);
-date_default_timezone_set('Europe/Amsterdam');
+
 
 require_once 'mobiledetect/Mobile_Detect.php';
 $detect = new Mobile_Detect;
@@ -49,6 +49,7 @@ if(htmlspecialchars($_GET["command"]) == "gamedata") {
 
 if(htmlspecialchars($_GET["command"]) == "shutdown") {
     $web_call_gamedata = file_get_contents("http://".$ps3_ip."/shutdown.ps3");
+	//$update_status = file_get_contents("http://".$_SERVER['SERVER_NAME']."/ps3_status_checker.php");
     header("Refresh:0; url=index.php");
 
 }
@@ -56,6 +57,7 @@ if(htmlspecialchars($_GET["command"]) == "shutdown") {
 // REBOOT CALL
 if(htmlspecialchars($_GET["command"]) == "reboot") {
 	$web_call_gamedata = file_get_contents("http://".$ps3_ip."/restart.ps3");
+	//$update_status = file_get_contents("http://".$_SERVER['SERVER_NAME']."/ps3_status_checker.php");
     header("Refresh:0; url=index.php");
 }
 
@@ -68,9 +70,14 @@ $sql_call = file_get_contents("http://".$_SERVER['SERVER_NAME']."/game_update_sq
 
    $web_call_unmount = file_get_contents("http://".$ps3_ip."/mount.ps3/unmount");
    $web_call_mount = file_get_contents("http://".$ps3_ip."/mount.ps3/net0/PS3ISO/".$mount);
+   //$update_status = file_get_contents("http://".$_SERVER['SERVER_NAME']."/ps3_status_checker.php");
+   
 
+   
+ // ---- FORCING ENABLE GAME DATA -----
+ 
  if($game_data_force == "Y") {
-   // ---- FORCING ENABLE GAME DATA -----
+   
    sleep(3);
    $web_call_gamedata = file_get_contents("http://".$ps3_ip."/extgd.ps3");
 
@@ -80,7 +87,7 @@ $sql_call = file_get_contents("http://".$_SERVER['SERVER_NAME']."/game_update_sq
     }
 
    else {
-
+	   sleep(3);
        $web_call_gamedata = file_get_contents("http://".$ps3_ip."/extgd.ps3");
 
        $game_data_status = "Enabled";
@@ -96,14 +103,17 @@ $sql_call = file_get_contents("http://".$_SERVER['SERVER_NAME']."/game_update_sq
 // UNMOUNT CALL
 
 if(htmlspecialchars($_GET["command"]) == "unmount") {
+	$sql_call = file_get_contents("http://".$_SERVER['SERVER_NAME']."/game_update_timeplay.php?id=".$id);
     $web_call_gamedata = file_get_contents("http://".$ps3_ip."/mount.ps3/unmount");
+	//$update_status = file_get_contents("http://".$_SERVER['SERVER_NAME']."/ps3_status_checker.php");
+	sleep(3);
     header("Refresh:0; url=index.php");
 }
 
 
 // GETTING STATUS HTML FILE FROM ps3_status_output.php
 
-$ps_status = "<table><tr>".file_get_contents("ps3_status_output.txt")."</tr></table>";
+//$ps_status = "<table><tr>".file_get_contents("ps3_status_output.txt")."</tr></table>";
 
 
 // CHOOSING HTML FILE ACCORDING TO THE DETECTED DEVICE
@@ -137,7 +147,7 @@ $popups_control = file_get_contents('html_files/popups.html');
 // INJECTING DATA INTO HTML
 $webpage = str_replace("%POPUPS_CONTROL%", $popups_control, $webpage); // <--- THIS ONE FOR FIRST
 
-$webpage = str_replace("%PS3_INFO%", $ps_status, $webpage);
+//$webpage = str_replace("%PS3_INFO%", $ps_status, $webpage);
 //$webpage = str_replace("%CURRENT_VERSION%", $app_version, $webpage);
 $webpage = str_replace("%GAMES_LIST%", $game_entry, $webpage);
 $webpage = str_replace("%GAMES_NUMBER%", $games_number, $webpage);

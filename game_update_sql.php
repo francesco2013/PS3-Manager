@@ -3,6 +3,8 @@
 include("mysql_conf.php");
 
 $name = $_GET['name'];
+
+
 	
 	 if (!$db = new mysqli(DB_SERVER, DB_USER, DB_PASSWORD, DB_NAME)) {
         die($db->connect_errno.' - '.$db->connect_error);
@@ -19,6 +21,10 @@ $name = str_replace(".iso","",$name);
 			$id = $obj->id;
         }
     }
+	
+	// Write file with the current mounted game ID
+	file_put_contents('mounted_id.txt',$id);
+	
 	$sql = "UPDATE games SET numplayed=".$numplayed.",lastplayed=CURRENT_TIMESTAMP WHERE id=".$id;
 	$result = $db->query($sql) or die($mysql->error);
 ?>

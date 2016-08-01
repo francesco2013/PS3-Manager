@@ -47,6 +47,7 @@ DROP TABLE IF EXISTS `games`;
 CREATE TABLE `games` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `lastplayed` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `time_played` int(11) NOT NULL,
   `dateadded` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `name` text NOT NULL,
   `isoname` text NOT NULL,
