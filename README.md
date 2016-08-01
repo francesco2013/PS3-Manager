@@ -6,6 +6,8 @@ The software is written in <b>PHP</b> and <b>Javascript</b>, runs on Apache webs
 
 It completely eliminates the need to use <b>Webman</b> or <b>Multiman</b> with the joypad to launch games from the <b>PS3</b> itself.
 
+FEATURES
+
 A version that will be able to run on a <b>Windows</b> webserver supporting PHP will be also released soon.
 
 - Automatic recognition of the game ISO fle and automatic download of the CD cover and all the game details from Metacritic (Game name, Release date, Score, Description, Publisher, Developer, Category)
@@ -24,7 +26,6 @@ A version that will be able to run on a <b>Windows</b> webserver supporting PHP 
 - Lots more features to come.
 
 REQUIREMENTS
-
 
 - LAMP environment (Linux+MySQL+Apache+PHP) in a VM or on a real machine.
 - Network share folder containing the PS3 ISO files and PS3NetSrv++ for Linux or PS3NetSrv for Windows to share the files with the PS3.
