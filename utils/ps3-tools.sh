@@ -20,7 +20,5 @@ while :; do
 /usr/bin/php $WWW_FOLDER/covers_resize.php;
 /usr/bin/php $WWW_FOLDER/covers_downloader.php;
 /usr/bin/perl -le 'map { $sum += -s } @ARGV; print $sum' -- $ISO_FOLDER/*.iso > $WWW_FOLDER/site/glob_iso_size.txt;
-/usr/bin/php /var/www/dev-ps3-manager/site/date_conv.php;
+/usr/bin/php $WWW_FOLDER/date_conv.php;
 sleep 20; done
-
-
