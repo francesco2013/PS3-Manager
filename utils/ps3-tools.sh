@@ -21,6 +21,6 @@ while :; do
 /usr/bin/php $WWW_FOLDER/covers_downloader.php;
 /usr/bin/perl -le 'map { $sum += -s } @ARGV; print $sum' -- $ISO_FOLDER/*.iso > $WWW_FOLDER/glob_iso_size.txt;
 /usr/bin/php $WWW_FOLDER/date_conv.php;
-sleep 20; done
+sleep 10; done
 
 
