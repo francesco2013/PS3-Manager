@@ -1,6 +1,6 @@
 #!/bin/bash
 
-WWW_FOLDER="/path/to/www/ps3-manager/html"
+WWW_FOLDER=$1
 
 if ! mkdir /tmp/ps3-statuschk.lock; then
     printf "Failed to aquire lock.\n" >&2

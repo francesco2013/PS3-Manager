@@ -1,7 +1,7 @@
 #!/bin/bash
 
-WWW_FOLDER="/path/to/www/ps3-manager/html" # Your PS3 Manager WWW Folder
-ISO_FOLDER="/path/to/isos/files/PS3/PS3ISO" # Your Games ISOs Folder
+WWW_FOLDER=$1 # PS3 Manager WWW Folder
+ISO_FOLDER=$2 # Games ISOs Folder
 
 if ! mkdir /tmp/ps3-tools.lock; then
     printf "Failed to aquire lock.\n" >&2
@@ -22,3 +22,5 @@ while :; do
 /usr/bin/perl -le 'map { $sum += -s } @ARGV; print $sum' -- $ISO_FOLDER/*.iso > $WWW_FOLDER/site/glob_iso_size.txt;
 /usr/bin/php $WWW_FOLDER/date_conv.php;
 sleep 20; done
+
+

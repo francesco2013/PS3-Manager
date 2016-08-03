@@ -42,17 +42,16 @@ function clean($string) {
 
 if($ps3_up == "up") {
 
-$html['cpursx_ps3'] = file_get_contents('http://'.$ps3_ip.'/cpursx_ps3');
+//$html['cpursx_ps3'] = file_get_contents('http://'.$ps3_ip.'/cpursx_ps3');
 
-$str = $html['cpursx_ps3'];
-$res = strip_tags($str);
-$res = str_replace('CPU: ','' ,$res);
-$cpu_temp_expl = explode("|",$res);
-$cpu_temp = $cpu_temp_expl[0];
+$ps_status_page = file_get_contents("http://".$ps3_ip."/cpursx.ps3");
+
+preg_match('~up">CPU:(.*?)<~', $ps_status_page, $cpu_temp);
+$cpu_temp = str_replace(' ','',$cpu_temp[1]);
 
 // Load Disk Data
 
-$ps_status_page = file_get_contents("http://".$ps3_ip."/cpursx.ps3");
+
 $ps_files_page = file_get_contents("http://".$ps3_ip);
 
 
