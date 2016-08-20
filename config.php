@@ -8,7 +8,7 @@ $ps3_folder = "/path/to/isos/files/PS3/PS3ISO";
 // FORCE EXTERNAL GAME DATA OR DISABLE IT
 // Enable it only if you have an external USB drive connected to the PS3 that you use to install the GameData files.
 // Default is "N".
-$game_data_force = "Y";
+$game_data_force = "N";
 
 // WWW LOCAL PATH (The WWW path where your PS3 Manager files are)
 
