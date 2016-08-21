@@ -1,0 +1,148 @@
+#!/bin/bash
+#
+########  PS3 Games Manager v.41a Tools ########
+ 
+#  A launcher for the services needed by PS3 Games Manager to manage automation.
+#  
+#  Coded by Francesco Fazio (2016)
+
+
+PS3_MANAGER_VER="0.41a"; # PS3 GAMES MANAGER VERSION
+
+RED=$(tput setaf 1)
+GREEN=$(tput setaf 2)
+CYAN=$(tput setaf 6)
+YELLOW=$(tput setaf 3)
+NORMAL=$(tput sgr0)
+
+echo -e "\n<---------["$CYAN PS3 Games Manager v."$PS3_MANAGER_VER" Services" "$NORMAL" ]--------->\n";
+
+WWW_FOLDER="/path/to/www/ps3-manager/html" # Your PS3 Manager WWW Folder
+ISO_FOLDER="/path/to/isos/files/PS3/PS3ISO" # Your Games ISOs Folder
+
+
+
+if [ $1 == "stop" ]
+then
+
+#echo -e " Killing running processes:\n";
+echo -e "\n             $YELLOW KILLING RUNNING PROCESSES $NORMAL\n";
+
+	killall -9  ps3-tools.sh > /dev/null 2>&1 
+	
+	if [ $? == 0 ] 
+	then
+         printf "%-30s %-30s"  "ps3-tools.sh Killed" "$GREEN[OK]" 
+	 echo -e "$NORMAL\n";
+
+	  kpid_1=true
+	else 
+         printf "%-30s %-30s"  "ps3-tools.sh " "$RED[NOT STARTED]" 
+	 echo -e "$NORMAL\n";
+	fi
+	
+	killall -9  ps3-statuschk.sh > /dev/null 2>&1
+	
+	 if [ $? == 0 ]
+        then
+         printf "%-30s %-30s"  "ps3-statuschk.sh Killed" "$GREEN[OK]"
+         echo -e "$NORMAL\n";
+
+	  kpid_2=true
+        else
+          printf "%-30s %-30s"  "ps3-statuschk.sh " "$RED[NOT STARTED]"
+          echo -e "$NORMAL\n";
+
+        fi
+
+#if [ "$kpid_1" = true ] && [ "$kpid_2" = true ] ;
+#then
+  # echo -e "\nAll Processes killed.";
+
+   #echo -e " Removing processes lock files:";
+
+	rm -rf  /tmp/ps3-statuschk.lock/
+	rm -rf  /tmp/ps3-tools.lock/
+
+    echo -e "Lock files removed.\n";
+
+    echo -e "PS3 Games Manager Services Stopped.\n";
+#fi
+
+elif [ $1 == "start"  ]
+then
+
+echo -e "\n             $YELLOW STARTING PROCESSES $NORMAL\n";
+#echo -e "       Starting processes:\n";
+
+	$WWW_FOLDER/utils/ps3-tools.sh $WWW_FOLDER $ISO_FOLDER > /dev/null 2>&1 &
+	printf "%-30s %-15s %-15s"  "ps3-tools.sh started" "PID $!" "$GREEN[OK]" 
+        echo -e "$NORMAL\n";
+
+        $WWW_FOLDER/utils/ps3-statuschk.sh $WWW_FOLDER > /dev/null 2>&1 &
+	 printf "%-30s %-15s %-15s"  "ps3-statuschk.sh started" "PID $!" "$GREEN[OK]"
+         echo -e "$NORMAL\n";
+
+
+	echo -e "PS3 Games Manager Services Started.\n";
+
+
+elif [ $1 == "status"  ]
+then
+
+echo -e "\n             $YELLOW STATUS OF THE PROCESSES $NORMAL\n";
+
+
+PS3_TOOLS_PID=$(pgrep ps3-tools.sh)
+PS3_STATUSCHK_PID=$(pgrep ps3-status)
+#PS3_NETSRV_PID=$(pgrep ps3netsrv)
+
+if [ ! -z "$PS3_TOOLS_PID" ] 
+then
+	#echo -e "  ->  ps3-tools.sh running with PID "$PS3_TOOLS_PID" "$GREEN [OK]" "$NORMAL"\n";
+         printf "%-30s %-15s %-15s"  "ps3-tools.sh running" "PID $PS3_TOOLS_PID" "$GREEN[OK]"
+        echo -e "$NORMAL\n";
+
+else 
+	#echo -e "  ->  ps3-tools.sh NOT STARTED"$RED [NOT STARTED]" "$NORMAL"\n";
+        printf "%-30s %-15s"  "ps3-tools.sh " "$RED[NOT STARTED]"
+        echo -e "$NORMAL\n";
+fi
+
+if [ ! -z "$PS3_STATUSCHK_PID"  ] 
+then
+
+	#echo -e "  ->  ps3-statuschk.sh running with PID "$PS3_STATUSCHK_PID" "$GREEN [OK]" "$NORMAL"\n";
+        printf "%-30s %-15s %-15s"  "ps3-statuschk.sh running" "PID $PS3_STATUSCHK_PID" "$GREEN[OK]"
+        echo -e "$NORMAL\n";
+
+
+else 
+        #echo -e "  ->  ps3-statuschk.sh NOT STARTED"$RED [NOT STARTED]" "$NORMAL"\n";
+        printf "%-30s %-15s"  "ps3-statuschk.sh " "$RED[NOT STARTED]"
+        echo -e "$NORMAL\n";
+
+fi
+
+#if [ ! -z "$PS3_NETSRV_PID"  ]
+#then
+
+        #echo -e "  ->  ps3netsrv running with PID "$PS3_NETSRV_PID" "$GREEN [OK]" "$NORMAL"\n";
+#         printf "%-30s %-15s %-15s"  "ps3netsrv running" "PID $PS3_NETSRV_PID" "$GREEN[OK]"
+#        echo -e "$NORMAL\n";
+  
+#else
+        #echo -e "  ->  ps3netsrv NOT STARTED"$RED [NOT STARTED]" "$NORMAL"\n";
+#        printf "%-30s %-15s"  "ps3netsrv " "$RED[NOT STARTED]"
+#        echo -e "$NORMAL\n";
+#fi
+
+
+
+else
+	
+echo -e " ./ps3-services: invalid options \n";
+echo -e " Usage: ./ps3-services {start|stop|status}\n";
+echo -e " Please specify 'start', 'stop' or 'status' as parameters.\n";
+
+fi

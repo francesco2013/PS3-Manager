@@ -9,18 +9,21 @@ if ! mkdir /tmp/ps3-tools.lock; then
 fi
 trap 'rm -rf /tmp/ps3-tools.lock' EXIT  # remove the lockdir on exit
 
+# STARTING PS3NETSRV
+PS3_NETSRV_PID=$(pgrep ps3netsrv)
 
+#if [ -z "$PS3_NETSRV_PID" ]
+#then
+#  /opt/ps3netsrv--/ps3netsrv++ -d $ISO_FOLDER;  
+#fi
 
 while :; do 
-
-# Change /path/to/www/ps3-manager/html with the path of your PS3 Manager Web Root (the same you configured in the config.php file).
-# Change /path/to/isos/files/ with the path of your Games ISOs Directory (the same you configured in the config.php file).
 
 /usr/bin/php $WWW_FOLDER/sql_import.php;
 /usr/bin/php $WWW_FOLDER/covers_resize.php;
 /usr/bin/php $WWW_FOLDER/covers_downloader.php;
 /usr/bin/perl -le 'map { $sum += -s } @ARGV; print $sum' -- $ISO_FOLDER/*.iso > $WWW_FOLDER/glob_iso_size.txt;
 /usr/bin/php $WWW_FOLDER/date_conv.php;
-sleep 10; done
 
+sleep 5; done
 

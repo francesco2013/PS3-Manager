@@ -48,11 +48,10 @@ $ps_status_page = file_get_contents("http://".$ps3_ip."/cpursx.ps3");
 
 preg_match('~up">CPU:(.*?)<~', $ps_status_page, $cpu_temp);
 $cpu_temp = str_replace(' ','',$cpu_temp[1]);
-
 // Load Disk Data
 
 
-$ps_files_page = file_get_contents("http://".$ps3_ip);
+$ps_files_page = $ps_status_page;
 
 
 
@@ -69,8 +68,9 @@ preg_match('~<a class="s" href="/setup.ps3">(.*?)<br><br>~', $ps_status_page, $p
 
 preg_match('~\[(.*?)\]~', $mounted_game[0], $game_code);
 
+// WEBMAN VERSION 1.43.33 
 
-preg_match('~<a href="/mount.ps3/dev_usb006"(.*?)MB</a>~', $ps_files_page, $disk_ext);
+preg_match('~/dev_usb000">USB0: (.*?) MB free</a><hr>~', $ps_files_page, $disk_ext);
 
 $memory_free = str_replace('MEM: ','',$memory_free);
 
@@ -96,13 +96,13 @@ $mounted_game = str_replace(']','',$mounted_game);
 $mounted_game = str_replace($game_code[1],'',$mounted_game);
 $mounted_game = str_replace('.iso','',$mounted_game);
 
-preg_match('~>(.*?)<~', $disk_ext[0], $disk_ext_free);
-$dsk_ext_free[0] =  str_replace('> ','' , $disk_ext_free[0]);
-$dsk_ext_free[0] =  str_replace(' MB','' , $disk_ext_free[0]);
+//preg_match('~>(.*?)<~', $disk_ext[0], $disk_ext_free);
+//$dsk_ext_free[0] =  str_replace('> ','' , $disk_ext[1]);
+//$dsk_ext_free[0] =  str_replace(' MB','' , $disk_ext[1]);
 
 
 $disk_int_free = clean($disk_int[1]);
-$disk_ext_free = clean($dsk_ext_free[0]);
+$disk_ext_free = clean($disk_ext[1]);
 
 
 
