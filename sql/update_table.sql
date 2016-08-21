@@ -1,1 +1,0 @@
-ALTER TABLE  `games` ADD  `test` INT NOT NULL AFTER  `id`
