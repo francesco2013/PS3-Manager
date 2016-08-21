@@ -1,6 +1,6 @@
 # PS3 Games Manager
 
-<b>PS3 Games Manager version 0.40b (beta)</b> is a totally new and revolutionary manager application for the <b>Playstation 3</b>, that features a lot of new functions and makes managing your games a totally new experience.
+<b>PS3 Games Manager version 0.41a (beta)</b> is a totally new and revolutionary manager application for the <b>Playstation 3</b>, that features a lot of new functions and makes managing your games a totally new experience.
 
 The software is written in <b>PHP</b> and <b>Javascript</b>, runs on Apache webserver (or any other webserver supporting <b>PHP</b> and running on <b>Linux</b>) and uses <b>Webman APIs</b> to control the <b>PS3</b> remotely from any computer browser and any mobile device.
 
