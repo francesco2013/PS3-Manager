@@ -37,5 +37,5 @@
 				 $('#alertrot').popup({
 					transition: 'all 0.1s', opacity: 0.90
 				});
-				$("#alertrot").html('PS3 Games Manager v.%CURRENT_VERSION% is optimized<br>to work in <b>PORTRAIT MODE</b> only.<br>Please rotate your device back to it');
+				$("#alertrot").html('PS3 Games Manager v.0.42a is optimized<br>to work in <b>PORTRAIT MODE</b> only.<br>Please rotate your device back to it');
             });
