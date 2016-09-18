@@ -20,7 +20,7 @@ date_default_timezone_set('Europe/Amsterdam'); // <--- Change this with your cur
 // <------ DON'T CHANGE ANYTHING AFTER THIS LINE ------>
 
 // PS3 Games Manager Version
-$app_version ="0.41a";
+$app_version ="0.42a";
 
 // Include Mysql Configuration
 include("mysql_conf.php");

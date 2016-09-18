@@ -25,5 +25,5 @@ while :; do
 /usr/bin/perl -le 'map { $sum += -s } @ARGV; print $sum' -- $ISO_FOLDER/*.iso > $WWW_FOLDER/glob_iso_size.txt;
 /usr/bin/php $WWW_FOLDER/date_conv.php;
 
-sleep 5; done
+sleep 2; done
 

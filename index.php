@@ -8,7 +8,7 @@ require_once 'mobiledetect/Mobile_Detect.php';
 $detect = new Mobile_Detect;
 
 require_once ('config.php');
-
+include('classes/debug.php');
 
 
 // Load global ISO size
@@ -56,7 +56,7 @@ if(htmlspecialchars($_GET["command"]) == "shutdown") {
 
 // REBOOT CALL
 if(htmlspecialchars($_GET["command"]) == "reboot") {
-	$web_call_gamedata = file_get_contents("http://".$ps3_ip."/restart.ps3");
+	$web_call_gamedata = file_get_contents("http://".$ps3_ip."/reboot.ps3?quick");
 	//$update_status = file_get_contents("http://".$_SERVER['SERVER_NAME']."/ps3_status_checker.php");
     header("Refresh:0; url=index.php");
 }
