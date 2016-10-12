@@ -11,8 +11,6 @@
                 $("#poweroff").html('Do you want to Shutdown the PS3 ?<br><br>');
                 $("#poweroff").append('<button style="margin-top: 10px;margin-right: 30px; background: #CFE0F1" onclick="CallUrl(\'index.php?command=shutdown\')" class="poweroff_close">Yes</button>');
                 $("#poweroff").append('<button style="margin-top: 10px; padding-right: 10px; padding-left: 10px; background: #CFE0F1" class="poweroff_close">No</button>');
-
-
                 $('#reboot').popup({
                     transition: 'all 0.3s'
                 });
