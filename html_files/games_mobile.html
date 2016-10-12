@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
 
 
 
-    <title>PLAYSTATION 3 GAMES MANAGER</title>
+    <title>PS3 GAMES MANAGER</title>
 
 <!--fonts-->
             <link rel="stylesheet" href="css/lightbox.css" type="text/css" media="all" />
@@ -36,6 +37,7 @@
         <!-- Function Popup Overlay -->
         <script>
             $(document).ready(function() {
+
                 // Initialize the plugin
                 $('#ps3_monitor').popup({
                     transition: 'all 0.3s'
@@ -44,36 +46,41 @@
                     transition: 'all 0.3s'
                 });
                 $("#shutdown").html('Do you want to Shutdown the PS3 ?<br><br>');
-                $("#shutdown").append('<button style="margin-top: 10px;margin-right: 30px;background: #CFE0F1;" onclick="CallUrl(\'index.php?command=shutdown\')" class="shutdown_close">Yes</button>');
-                $("#shutdown").append('<button style="margin-top: 10px; padding-right: 10px; padding-left: 10px; background: #CFE0F1;" class="shutdown_close">No</button>');
+                $("#shutdown").append('<button style="margin-top: 10px;margin-right: 30px; background: #CFE0F1" onclick="CallUrl(\'index.php?command=shutdown\')" class="shutdown_close">Yes</button>');
+                $("#shutdown").append('<button style="margin-top: 10px; padding-right: 10px; padding-left: 10px; background: #CFE0F1" class="shutdown_close">No</button>');
+
                 $('#reboot').popup({
                     transition: 'all 0.3s'
                 });
                 $("#reboot").html('Do you want to Reboot the PS3 ?<br><br>');
-                $("#reboot").append('<button style="margin-top: 10px;margin-right: 30px;background: #CFE0F1;" onclick="CallUrl(\'index.php?command=reboot\')" class="reboot_close">Yes</button>');
-                $("#reboot").append('<button style="margin-top: 10px; padding-right: 10px; padding-left: 10px; background: #CFE0F1;" class="reboot_close">No</button>');
+                $("#reboot").append('<button style="margin-top: 10px;margin-right: 30px; background: #CFE0F1" onclick="CallUrl(\'index.php?command=reboot\')" class="reboot_close">Yes</button>');
+                $("#reboot").append('<button style="margin-top: 10px; padding-right: 10px; padding-left: 10px; background: #CFE0F1" class="reboot_close">No</button>');
+
                 $('#unmount').popup({
                     transition: 'all 0.3s'
                 });
                 $("#unmount").html('Do you want to Unmount the current Game ?<br><br>');
-                $("#unmount").append('<button style="margin-top: 10px;margin-right: 30px; background: #CFE0F1;" onclick="CallUrl(\'index.php?command=unmount\')" class="unmount_close">Yes</button>');
-                $("#unmount").append('<button style="margin-top: 10px; padding-right: 10px; padding-left: 10px; background: #CFE0F1;" class="unmount_close">No</button>');
-				
-				$('#alertrot').popup({
-					transition: 'all 0.1s', opacity: 0.90
-				});
-				$("#alertrot").html('PS3 Games Manager v.%CURRENT_VERSION% is optimized<br>to work iin <b>PORTRAIT MODE</b> only.<br>Please rotate your device back to it');	
-               
+                $("#unmount").append('<button style="margin-top: 10px;margin-right: 30px; background: #CFE0F1" onclick="CallUrl(\'index.php?command=unmount\')" class="unmount_close">Yes</button>');
+                $("#unmount").append('<button style="margin-top: 10px; padding-right: 10px; padding-left: 10px; background: #CFE0F1" class="unmount_close">No</button>');
+
 				 $('#game_details').popup({
-                    transition: 'all 0.3s'	
+                    transition: 'all 0.3s'
                 });
+				 
 				 $("#game_details").html('Loading data from server ...');
                  $("#game_details").load('game_description.php?id=%GAME_ID%');
+				 
+				 $('#alertrot').popup({
+					transition: 'all 0.1s', opacity: 0.90
+				});
+				$("#alertrot").html('PS3 Games Manager v.%LATEST_VERSION% is optimized<br>to work in <b>PORTRAIT MODE</b> only.<br>Please rotate your device back to it');
+
             });
+
+
         </script>
 
-<!-- DETECTS MOBILE ROTATION ALERTING USER -->
-		
+    		 <!-- DETECTS MOBILE ROTATION ALERTING USER -->
 <script>
 		window.addEventListener("orientationchange", function() {
 		
@@ -88,8 +95,8 @@
 		},false);
 </script>	
 
-       
         <script>
+
 function CallUrl(url) {
     $.ajax({
         type: 'GET',
@@ -101,7 +108,18 @@ function CallUrl(url) {
 
 
 
-
+<script> 
+function PS3Check_Status() {
+	$("#ps3_monitor").empty();
+				
+				 $.ajax({
+					type: 'GET',
+					url: 'ps3_status_output.txt',
+					success:,
+					});
+}; 
+</script>
+		
 <script type="text/javascript">
 function update() {
 	
@@ -159,17 +177,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#52a1eb', end
                             <div style="position: relative;  padding: 0px 0px 0px 0px;">
 
 
-                                <nav id="nav-1">
-                                    <span class="link-3 ps3_monitor_open" style="cursor: pointer;" >PS3 System Status</span><br>
-                                    <a class="link-3" href="index.php" style="cursor: pointer;">Games</a><br>
-                                    <span class="link-3" style="cursor: pointer;"><a class='links' style="color: black; text-decoration: none" onclick="return confirm('Enable/Disable USB Gamedata ?')" href="index.php?command=gamedata">%GAME_DATA_STATUS% Game Data</a></span><br>
-                                    <span class="link-3 unmount_open" style="cursor: pointer;">Unmount</span><br>
-                                    <span class="link-3 shutdown_open" style="cursor: pointer;">Shutdown</span><br>
-                                    <span class="link-3 reboot_open" style="cursor: pointer;">Reboot</span>
-									<span id="alert_open" class="alertrot_open" style="visibility: hidden;"></span>
-									<span id="alert_close" class="alertrot_close" style="visibility: hidden;"></span>
+                                 <nav id="nav-1">
+                                    <a href="#" class="link-3 ps3_monitor_open" style="cursor: pointer;" >PS3 System Status</a><br>
+                                    <a class="link-3" href="index.php">Games</a><br>
+                                    <span class="link-3"><a class='links' style="color: black; text-decoration: none" onclick="return confirm('Enable/Disable USB Gamedata ?')" href="index.php?command=gamedata">%GAME_DATA_STATUS% Game Data</a></span><br>
+                                     <a href="#" class="link-3 unmount_open" >Unmount</a><br>
+                                    <a href="#" class="link-3 shutdown_open">Shutdown</a><br>
+                                    <a href="#" class="link-3 reboot_open">Reboot</a><br>
                                 </nav>
-                             
 
 
   </div>
@@ -177,13 +192,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#52a1eb', end
  <!-- /.navbar-collapse -->
 
                       </div>
-					
-					<div id="ps3_monitor"  class="well popup_content" style="visibility: hidden;" ></div>
-                    <div id="shutdown"  class="well popup_content" style="visibility: hidden;"></div>
+ <div id="ps3_monitor"  class="well popup_content" style="visibility: hidden;" ></div>
+                          <div id="shutdown"  class="well popup_content" style="visibility: hidden;"></div>
                     <div id="reboot"  class="well popup_content" style="visibility: hidden;"></div>
                     <div id="unmount"  class="well popup_content" style="visibility: hidden;"></div>
-					<div id="alertrot"  class="well popup_content" style="visibility: hidden;"></div>
 					<div id="game_details"  class="popup_content drop-shadow curled" style="margin-left: 10%;margin-top: 10%;visibility: hidden; width: 80%;"></div>
+					<div id="alertrot"  class="well popup_content" style="visibility: hidden;"></div>
+					<span id="alert_open" class="alertrot_open" style="visibility: hidden;"></span>
+					<span id="alert_close" class="alertrot_close" style="visibility: hidden;"></span>
+
 
 
 
@@ -196,7 +213,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#52a1eb', end
                     <div class="container" >
                     <div class="gallery-text"  style='background-color: #F2F2F2;'>
 
-                 <!--        <h2 style="background-color: #3399AA; ">Playstation 3 GAMES</h2> -->
+                 <!--        <h2 style="background-color: #3399AA; ">PS3  GAMES</h2> -->
 
 
 
@@ -206,9 +223,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#52a1eb', end
 
 
 
-                            <div  id="clearfix" class="clearfix"></div>
+                            <div class="clearfix"></div>
                         </div>
-                        
+                        <script src="js/lightbox.js"></script>
                     </div>
             </div>
             <!--gallery-starts-->
@@ -217,16 +234,28 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#52a1eb', end
                 
                 <div class="ft-bottom">
                     <div class="container" >
+						<center><img src="images/chrome1.png" style="margin-bottom: 20px; width:35%; height:auto;"></center>
                         <p style='color: white'>&copy; 2016 Fazionet.com All Rights Reserved. Design and Code By Francesco Fazio.</p>
                     </div>
                 </div>
-              <script type="text/javascript">
+                <script type="text/javascript">
                 $(document).ready(function() {
+                    /*
+                    var defaults = {
+                        containerID: 'toTop', // fading element id
+                        containerHoverID: 'toTopHover', // fading element hover id
+                        scrollSpeed: 1200,
+                        easingType: 'linear'
+                    };
+                    */
+
                     $().UItoTop({ easingType: 'easeOutQuart' });
+
                 });
-            </sc
+            </script>
 		      <a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1; "></span></a>
             </div>
         <!--footer-ends-->
     </body>
 </html>
+
