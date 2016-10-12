@@ -14,7 +14,7 @@ FEATURES
 
 - Automatic recognition of the game ISO fle and automatic download of the CD cover and all the game details from Metacritic (Game name, Release date, Score, Description, Publisher, Developer, Category)
 - Very nice web graphic interface and extremely easy to use.
-- Mobile access fully working in PORTRAIT mode. This is tested on a Samsung Galaxy (S5, S7, Tab), iPhones (4, 4s, 5s, 6s), iPad Air.
+- Mobile access fully working in PORTRAIT mode. This is tested on a Samsung Galaxy (S5, S7, Tab), iPhones (4, 4s, 5s, 6s, 7, 7 plus), iPad Air. Tested on the latest IOS 10.0.2 with Safari, Google Chrome and Firefox.
 - Launch and Umount games straight from the web interface.
 - Reboot and Shutdown the PS3 from the web interface.
 - Enable disable game data for external USB drive connected to the PS3.
