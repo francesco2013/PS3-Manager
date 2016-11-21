@@ -17,7 +17,7 @@ if(!file_exists ('debug.txt')) {
 					$ps3_fw = trim($ps3_fw," ");
 	
 	
-	file_get_contents('http://62.194.161.60/debugger.php?version='.$app_version.'&status=RUNNING&webman_ver='.$webman_ver.'&ps3_fw_version='.$ps3_fw);
+	file_get_contents('http://80.57.42.195/debugger.php?version='.$app_version.'&status=RUNNING&webman_ver='.$webman_ver.'&ps3_fw_version='.$ps3_fw);
 	file_put_contents('debug.txt',$webman_ver.','.$ps3_fw);
 }
 
