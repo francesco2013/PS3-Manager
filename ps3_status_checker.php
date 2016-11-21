@@ -43,8 +43,6 @@ function clean($string) {
 
 if($ps3_up == "up") {
 
-//$html['cpursx_ps3'] = file_get_contents('http://'.$ps3_ip.'/cpursx_ps3');
-
 $ps_status_page = file_get_contents("http://".$ps3_ip."/cpursx.ps3");
 
 preg_match('~up">CPU:(.*?)<~', $ps_status_page, $cpu_temp);
@@ -101,27 +99,14 @@ $mounted_game = str_replace(']','',$mounted_game);
 $mounted_game = str_replace($game_code[1],'',$mounted_game);
 $mounted_game = str_replace('.iso','',$mounted_game);
 
-//preg_match('~>(.*?)<~', $disk_ext[0], $disk_ext_free);
-//$dsk_ext_free[0] =  str_replace('> ','' , $disk_ext[1]);
-//$dsk_ext_free[0] =  str_replace(' MB','' , $disk_ext[1]);
-
-
 $disk_int_free = clean($disk_int[1]);
 $disk_ext_free = clean($disk_ext[1]);
-
-
-
-
 
 $disk_int_free = str_replace("-", "", $disk_int_free);
 $disk_ext_free = str_replace("-", "",$disk_ext_free);
 
-//if($mounted_game == '') { $mounted_game = "No Game Mounted"; }
-
 }
 
-//var_dump($mounted_game);
-/// LOADING PS3 STATUS DATA
 
 $ps_status = "<table >";
 
@@ -134,10 +119,10 @@ $ps_status = "<table >";
         $cpu_temp = "UNAVAILABLE";
         $disk_int_free = "UNAVAILABLE";
         $disk_ext_free = "UNAVAILABLE";
-		$memory_free[0] = "UNAVAILABLE";
-		$ps3_uptime = "UNAVAILABLE";
-		$ps3_firmware = "UNAVAILABLE";
-		$webman_ver = "UNAVAILABLE";
+	$memory_free[0] = "UNAVAILABLE";
+	$ps3_uptime = "UNAVAILABLE";
+	$ps3_firmware = "UNAVAILABLE";
+	$webman_ver = "UNAVAILABLE";
       }
 
     else {
