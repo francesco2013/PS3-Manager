@@ -25,19 +25,20 @@ $now = date("F j, Y, g:i a");
 
 
 
-
 // USB EXTERNAL GAMEDATA CALL
-if(htmlspecialchars($_GET["command"]) == "gamedata") {
-    $web_call_gamedata = file_get_contents("http://".$ps3_ip."/extgd.ps3");
 
-    if(strpos($web_call_gamedata, 'Disabled') === false) {
-        $game_data_status = "Enabled";
-        file_put_contents("game_data_status.txt", $game_data_status);
-        }
-     else {
-         $game_data_status = "Disabled";
-         file_put_contents("game_data_status.txt", $game_data_status);
-     }
+if($game_data_force == "Y") {
+	
+	if(htmlspecialchars($_GET["command"]) == "gamedata") {
+    		$web_call_gamedata = file_get_contents("http://".$ps3_ip."/extgd.ps3");
+    		if(strpos($web_call_gamedata, 'Disabled') === false) {
+        		$game_data_status = "Enabled";
+        		file_put_contents("game_data_status.txt", $game_data_status);
+        	}
+     	else {
+        	 $game_data_status = "Disabled";
+         	file_put_contents("game_data_status.txt", $game_data_status);
+     	}
 
         header("Refresh:0; url=index.php");
 }
