@@ -8,8 +8,6 @@ require_once 'mobiledetect/Mobile_Detect.php';
 $detect = new Mobile_Detect;
 
 require_once ('config.php');
-include('classes/debug.php');
-
 
 // Load global ISO size
 require_once('get_total_iso_size.php');
