@@ -16,21 +16,9 @@ $now = date("F j, Y, g:i a");
 
 
 
-// GAMEDATA CALL
-if(htmlspecialchars($_GET["command"]) == "gamedata") {
-    $web_call_gamedata = file_get_contents("http://".$ps3_ip."/extgd.ps3");
+// USB EXTERNAL GAMEDATA CALL
 
-    if(strpos($web_call_gamedata, 'Disabled') === false) {
-        $game_data_status = "Enabled";
-        file_put_contents("game_data_status.txt", $game_data_status);
-        }
-     else {
-         $game_data_status = "Disabled";
-         file_put_contents("game_data_status.txt", $game_data_status);
-     }
-
-        header("Refresh:0; url=index.php");
-}
+require('check_usb.php');
 
 // SHUTDOWN CALL
 
@@ -98,19 +86,27 @@ $webpage = str_replace("%LATEST_VERSION%", $app_version, $webpage);
 $webpage = str_replace("%NAV_MENU%", $menu_html, $webpage);
 
 
-/// LOADING GAME DATA STATUS FILE
+/// LOADING USB GAME DATA STATUS FILE AND CHANGING MENU 
 
-$game_data_set = file_get_contents("game_data_status.txt");
+$game_data_status = file_get_contents("game_data_status.txt");
 
-if($game_data_set == "Enabled") {
-    $webpage = str_replace("%GAME_DATA_STATUS%", "Disable ", $webpage);
+$output_set_gamedata = '<a href="index.php?command=gamedata" onclick="return confirm(\'Change Gamedata Setup ?\')">'.$game_data_status.'</a>';
+
+if($mobile = 1) { 
+ $output_set_gamedata = '<a class="links" style="color: black; text-decoration: none" onclick="return confirm(\'Change Gamedata Setup ?\')" href="index.php?command=gamedata">'.$game_data_status.'</a>';
 }
 
-else {
-    $webpage = str_replace("%GAME_DATA_STATUS%", "Enable ", $webpage);
+if($game_data_status == "NO USB DRIVE") {
+	$output_set_gamedata = '<a href="#">'.$game_data_status.'</a>';
+	if($mobile = 1) { 
+		$output_set_gamedata = '<a class="links" style="color: black; text-decoration: none"  href="#">'.$game_data_status.'</a>';
+	}
 }
 
- $webpage = str_replace("%PS3_IP%", $ps3_ip, $webpage);
+$webpage = str_replace("%GAME_DATA_SETTING%", $output_set_gamedata, $webpage);
+
+
+$webpage = str_replace("%PS3_IP%", $ps3_ip, $webpage);
  
 
 echo $webpage;

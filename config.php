@@ -1,28 +1,23 @@
 <?php
+
 // PS3 IP ADDRESS (Put the LAN IP Address of your PS3)
 $ps3_ip = "PS3_IP_ADDRESS";
 
 // PS3 SHARE WHERE THE ISOs ARE (shared also with PS3NetSrv++)
 $ps3_folder = "/path/to/isos/files/PS3/PS3ISO";
 
-// FORCE EXTERNAL GAME DATA OR DISABLE IT
-// Enable it only if you have an external USB drive connected to the PS3 that you use to install the 
-// GameData files.
-// Default is "N" Dont use external USB Drive.
-$game_data_force = "N";
-
 // WWW LOCAL PATH (The WWW path where your PS3 Manager files are)
 $local_path = "/path/to/www/ps3-manager/html";
 
 // SET Current TimeZone:
-date_default_timezone_set('Europe/Amsterdam'); // <--- Change this with your current Time Zone.
-
-// <------ DON'T CHANGE ANYTHING AFTER THIS LINE ------>
+date_default_timezone_set('Europe/Amsterdam');
 
 // PS3 Games Manager Version
-$app_version ="0.42b";
+$app_version ="0.42c";
 
 // Include Mysql Configuration
 include("mysql_conf.php");
+
+
 
 ?>

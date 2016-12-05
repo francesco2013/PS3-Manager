@@ -1,13 +1,15 @@
 <?php
 
 
-error_reporting(E_ERROR | E_PARSE);
+//error_reporting(E_ERROR | E_PARSE);
 
 
 require_once 'mobiledetect/Mobile_Detect.php';
 $detect = new Mobile_Detect;
 
 require_once ('config.php');
+//include('classes/debug.php');
+
 
 // Load global ISO size
 require_once('get_total_iso_size.php');
@@ -25,24 +27,10 @@ $now = date("F j, Y, g:i a");
 
 
 
+
 // USB EXTERNAL GAMEDATA CALL
 
-if($game_data_force == "Y") {
-	
-	if(htmlspecialchars($_GET["command"]) == "gamedata") {
-    		$web_call_gamedata = file_get_contents("http://".$ps3_ip."/extgd.ps3");
-    		if(strpos($web_call_gamedata, 'Disabled') === false) {
-        		$game_data_status = "Enabled";
-        		file_put_contents("game_data_status.txt", $game_data_status);
-        	}
-     	else {
-        	 $game_data_status = "Disabled";
-         	file_put_contents("game_data_status.txt", $game_data_status);
-     	}
-
-        header("Refresh:0; url=index.php");
-}
-
+require('check_usb.php');
 
 // SHUTDOWN CALL
 
@@ -69,35 +57,8 @@ $sql_call = file_get_contents("http://".$_SERVER['SERVER_NAME']."/game_update_sq
 
    $web_call_unmount = file_get_contents("http://".$ps3_ip."/mount.ps3/unmount");
    $web_call_mount = file_get_contents("http://".$ps3_ip."/mount.ps3/net0/PS3ISO/".$mount);
-   //$update_status = file_get_contents("http://".$_SERVER['SERVER_NAME']."/ps3_status_checker.php");
    
-
-   
- // ---- FORCING ENABLE GAME DATA -----
- 
- if($game_data_force == "Y") {
-   
-   sleep(3);
-   $web_call_gamedata = file_get_contents("http://".$ps3_ip."/extgd.ps3");
-
-   if(strpos($web_call_gamedata, 'Disabled') === false) {
-       $game_data_status = "Enabled";
-       file_put_contents("game_data_status.txt", $game_data_status);
-    }
-
-   else {
-	   sleep(3);
-       $web_call_gamedata = file_get_contents("http://".$ps3_ip."/extgd.ps3");
-
-       $game_data_status = "Enabled";
-       file_put_contents("game_data_status.txt", $game_data_status);
-   }
- }
-   // -------- END ENABLE GAME DATA -------
-
-    header("Refresh:0; url=index.php");
-    }
-//}
+}
 
 // UNMOUNT CALL
 
@@ -112,7 +73,7 @@ if(htmlspecialchars($_GET["command"]) == "unmount") {
 
 // GETTING STATUS HTML FILE FROM ps3_status_output.php
 
-//$ps_status = "<table><tr>".file_get_contents("ps3_status_output.txt")."</tr></table>";
+
 
 
 // CHOOSING HTML FILE ACCORDING TO THE DETECTED DEVICE
@@ -122,6 +83,7 @@ if ( $detect->isMobile() && !$detect->isTablet()){
 
     $webpage = file_get_contents('html_files/mobile.html');
 	$menu_html = file_get_contents('html_files/menu_mobile.html');
+	$mobile_page = 1;
 }
 
 // Any tablet device.
@@ -144,27 +106,33 @@ $popups_control = file_get_contents('html_files/popups.html');
 
 
 // INJECTING DATA INTO HTML
-$webpage = str_replace("%POPUPS_CONTROL%", $popups_control, $webpage); // <--- THIS ONE FOR FIRST
 
-//$webpage = str_replace("%PS3_INFO%", $ps_status, $webpage);
-//$webpage = str_replace("%CURRENT_VERSION%", $app_version, $webpage);
+$webpage = str_replace("%POPUPS_CONTROL%", $popups_control, $webpage); // <--- THIS ONE FOR FIRST
 $webpage = str_replace("%GAMES_LIST%", $game_entry, $webpage);
 $webpage = str_replace("%GAMES_NUMBER%", $games_number, $webpage);
 $webpage = str_replace("%GAMES_NUMBER_NP%", $games_number_np, $webpage);
 $webpage = str_replace("%GLOB_SIZE%", $glob_size, $webpage);
 $webpage = str_replace("%NAV_MENU%", $menu_html, $webpage);
 
-/// LOADING GAME DATA STATUS FILE
+/// LOADING USB GAME DATA STATUS FILE AND CHANGING MENU 
 
-$game_data_set = file_get_contents("game_data_status.txt");
+$game_data_status = file_get_contents("game_data_status.txt");
 
-if($game_data_set == "Enabled") {
-    $webpage = str_replace("%GAME_DATA_STATUS%", "Disable ", $webpage);
+$output_set_gamedata = '<a href="index.php?command=gamedata" onclick="return confirm(\'Change Gamedata Setup ?\')">'.$game_data_status.'</a>';
+
+if($mobile_page == 1) { 
+ $output_set_gamedata = '<a class="links" style="color: black; text-decoration: none" onclick="return confirm(\'Change Gamedata Setup ?\')" href="index.php?command=gamedata">'.$game_data_status.'</a>';
 }
 
-else {
-    $webpage = str_replace("%GAME_DATA_STATUS%", "Enable ", $webpage);
+if($game_data_status == "NO USB DRIVE") {
+	$output_set_gamedata = '<a href="#">'.$game_data_status.'</a>';
+	if($mobile_page == 1) { 
+		$output_set_gamedata = '<a class="links" style="color: black; text-decoration: none"  href="#">'.$game_data_status.'</a>';
+	}
 }
+
+
+$webpage = str_replace("%GAME_DATA_SETTING%", $output_set_gamedata, $webpage);
 
 //SETTING UP SELECT DROP DOWN
 

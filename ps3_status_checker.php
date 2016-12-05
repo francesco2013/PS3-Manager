@@ -43,6 +43,8 @@ function clean($string) {
 
 if($ps3_up == "up") {
 
+//$html['cpursx_ps3'] = file_get_contents('http://'.$ps3_ip.'/cpursx_ps3');
+
 $ps_status_page = file_get_contents("http://".$ps3_ip."/cpursx.ps3");
 
 preg_match('~up">CPU:(.*?)<~', $ps_status_page, $cpu_temp);
@@ -68,10 +70,7 @@ preg_match('~<a class="s" href="/setup.ps3">(.*?)<br><br>~', $ps_status_page, $p
 
 preg_match('~\[(.*?)\]~', $mounted_game[0], $game_code);
 
-// WEBMAN VERSION 1.43.33 
-
-// <a href="/dev_usb000">USB000: 547,515 MB free</a>
-preg_match('~/dev_usb000">USB000:(.*?)MB free</a><hr>~', $ps_files_page, $disk_ext);
+preg_match('~USB00(.*?)MB free</a><hr>~', $ps_files_page, $disk_ext);
 
 
 $memory_free = str_replace('MEM: ','',$memory_free);
@@ -99,14 +98,15 @@ $mounted_game = str_replace(']','',$mounted_game);
 $mounted_game = str_replace($game_code[1],'',$mounted_game);
 $mounted_game = str_replace('.iso','',$mounted_game);
 
+
 $disk_int_free = clean($disk_int[1]);
 $disk_ext_free = clean($disk_ext[1]);
 
 $disk_int_free = str_replace("-", "", $disk_int_free);
 $disk_ext_free = str_replace("-", "",$disk_ext_free);
+$disk_ext_free = substr($disk_ext_free, 1);
 
 }
-
 
 $ps_status = "<table >";
 
@@ -119,10 +119,10 @@ $ps_status = "<table >";
         $cpu_temp = "UNAVAILABLE";
         $disk_int_free = "UNAVAILABLE";
         $disk_ext_free = "UNAVAILABLE";
-	$memory_free[0] = "UNAVAILABLE";
-	$ps3_uptime = "UNAVAILABLE";
-	$ps3_firmware = "UNAVAILABLE";
-	$webman_ver = "UNAVAILABLE";
+		$memory_free[0] = "UNAVAILABLE";
+		$ps3_uptime = "UNAVAILABLE";
+		$ps3_firmware = "UNAVAILABLE";
+		$webman_ver = "UNAVAILABLE";
       }
 
     else {
@@ -155,7 +155,6 @@ $ps_status = "<table >";
 	
 	
 	$ps_status .= "<tr><td><font color='#3399AA'><b>Total Games</b></font></td><td style='color: black; text-align: center;  width: auto;'>".$row_cnt."</td></tr>";
-	//$ps_status .= "<tr><td><font color='#3399AA'><b>PS3 Manager</b></font></td><td style='color: black; text-align: center;  width: auto;'>v.".$app_version."</td>";
 	$ps_status .= "<tr><td><font color='#3399AA'><b>Last Check</b></font></td><td style='color: black; text-align: center;  width: auto;'>".date('d-m-Y H:i:s')."</td></tr>";
 	
 	echo $row_cnt;
