@@ -1,13 +1,13 @@
 #!/bin/bash
 #
-########  PS3 Games Manager v.42a Tools ########
+########  PS3 Games Manager v.42c Tools ########
  
 #  A launcher for the services needed by PS3 Games Manager to manage automation.
 #  
 #  Coded by Francesco Fazio (2016)
 
 
-PS3_MANAGER_VER="0.42a"; # PS3 GAMES MANAGER VERSION
+PS3_MANAGER_VER="0.42c"; # PS3 GAMES MANAGER VERSION
 
 RED=$(tput setaf 1)
 GREEN=$(tput setaf 2)
