@@ -57,7 +57,7 @@ $sql_call = file_get_contents("http://".$_SERVER['SERVER_NAME']."/game_update_sq
 
    $web_call_unmount = file_get_contents("http://".$ps3_ip."/mount.ps3/unmount");
    $web_call_mount = file_get_contents("http://".$ps3_ip."/mount.ps3/net0/PS3ISO/".$mount);
-    header("Refresh:0; url=index.php");
+     header("Refresh:0; url=index.php");
 }
 
 // UNMOUNT CALL

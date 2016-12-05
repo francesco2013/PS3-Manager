@@ -92,13 +92,13 @@ $game_data_status = file_get_contents("game_data_status.txt");
 
 $output_set_gamedata = '<a href="index.php?command=gamedata" onclick="return confirm(\'Change Gamedata Setup ?\')">'.$game_data_status.'</a>';
 
-if($mobile = 1) { 
+if($mobile_page == 1) { 
  $output_set_gamedata = '<a class="links" style="color: black; text-decoration: none" onclick="return confirm(\'Change Gamedata Setup ?\')" href="index.php?command=gamedata">'.$game_data_status.'</a>';
 }
 
 if($game_data_status == "NO USB DRIVE") {
 	$output_set_gamedata = '<a href="#">'.$game_data_status.'</a>';
-	if($mobile = 1) { 
+	if($mobile_page == 1) { 
 		$output_set_gamedata = '<a class="links" style="color: black; text-decoration: none"  href="#">'.$game_data_status.'</a>';
 	}
 }
