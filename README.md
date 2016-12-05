@@ -31,7 +31,7 @@ REQUIREMENTS
 
 - LAMP environment (Linux+MySQL+Apache+PHP) in a VM (VirtualBox or VmWare) or on a real machine.
 - Network share folder containing the PS3 ISO files and PS3NetSrv++ for Linux or PS3NetSrv for Windows to share the files with the PS3.
-- PS3 modded with CFW and Webman 1.43.30+ installed.
+- PS3 modded with CFW and webMAN MOD 1.45.00+ installed.
 - PS3 accessible via the internal network.
 - A lot of joy of playing :)
 
