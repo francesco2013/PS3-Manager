@@ -1,16 +1,10 @@
 # PS3 Games Manager
 
-<b>PS3 Games Manager version 0.42c (beta)</b> is a totally new and revolutionary manager application for the <b>Playstation 3</b>, that features a lot of new functions and makes managing your games a totally new experience.
+<b>PS3 Games Manager version 0.42c (beta)</b> is a manager application for the <b>Playstation 3</b>, that features a lot of new functions and makes managing your games a totally new experience.
 
 The software is written in <b>PHP</b> and <b>Javascript</b>, runs on Apache webserver (or any other webserver supporting <b>PHP</b> and running on <b>Linux</b>) and uses <b>Webman APIs</b> to control the <b>PS3</b> remotely from any computer browser and any mobile device.
 
-It completely eliminates the need to use <b>Webman</b> or <b>Multiman</b> with the joypad to launch games from the <b>PS3</b> itself.
-
-A version that will be able to run on a <b>Windows</b> webserver supporting PHP and a VM Image with Linux PS3 Manager pre-installed will be also released soon.
-
 FEATURES
-
-
 
 - Automatic recognition of the game ISO files and automatic download of the CD cover and all the game details from Metacritic (Game name, Release date, Score, Description, Publisher, Developer, Category)
 - Very nice web graphic interface and extremely easy to use.
