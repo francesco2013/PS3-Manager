@@ -32,7 +32,4 @@ The software is written in <b>PHP</b> and <b>Javascript</b>, runs on Apache webs
 
 Working Demo: <b><a href="http://ps3-demo.fazionet.com/index.php" target="_blank">PS3 Games Manager Website</a></b></center>
 
-It took a lot of hours of work to develop this application.
-If you like it please <a href="http://ps3-demo.fazionet.com/download.php"><b>donate</b></a> something to help me improving it.
-
 Developed by <b>Francesco Fazio</b>.
