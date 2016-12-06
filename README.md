@@ -4,7 +4,7 @@
 
 The software is written in <b>PHP</b> and <b>Javascript</b>, runs on Apache webserver (or any other webserver supporting <b>PHP</b> and running on <b>Linux</b>) and uses <b>Webman APIs</b> to control the <b>PS3</b> remotely from any computer browser and any mobile device.
 
-FEATURES
+<b>FEATURES</b>
 
 - Automatic recognition of the game ISO files and automatic download of the CD cover and all the game details from Metacritic (Game name, Release date, Score, Description, Publisher, Developer, Category)
 - Very nice web graphic interface and extremely easy to use.
@@ -21,7 +21,7 @@ FEATURES
 - Voice recognition (English only so far).
 - Lots more features to come.
 
-REQUIREMENTS
+<b>REQUIREMENTS</b>
 
 - LAMP environment (Linux+MySQL+Apache+PHP) in a VM (VirtualBox or VmWare) or on a real machine.
 - Network share folder containing the PS3 ISO files and PS3NetSrv++ for Linux or PS3NetSrv for Windows to share the files with the PS3.
