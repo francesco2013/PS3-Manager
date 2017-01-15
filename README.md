@@ -21,7 +21,7 @@ The software is written in <b>PHP</b> and <b>Javascript</b>, runs on Apache webs
 - Voice recognition (English only so far).
 - Lots more features to come.
 
-<b>REQUIREMENTS</b>
+<b>SYSTEM REQUIREMENTS</b>
 
 - LAMP environment (Linux+MySQL+Apache+PHP) in a VM (VirtualBox or VmWare) or on a real machine.
 - Network share folder containing the PS3 ISO files and PS3NetSrv++ for Linux or PS3NetSrv for Windows to share the files with the PS3.
